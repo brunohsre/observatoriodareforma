@@ -1,0 +1,531 @@
+/**
+ * visao-geral.css
+ * Estilos para a nova página de Visão Geral
+ * Observatório da Reforma Tributária
+ */
+
+/* ========================================
+   HERO DE APRESENTAÇÃO
+======================================== */
+.visao-geral-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.visao-geral-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.hero-content h1 i {
+    font-size: 1.75rem;
+    opacity: 0.9;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+}
+
+.hero-description {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.badge-gov {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ========================================
+   BOX DE RELEVÂNCIA
+======================================== */
+.relevancia-box {
+    display: flex;
+    gap: 1.25rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 5px solid var(--info);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+}
+
+.relevancia-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--info);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.relevancia-content h3 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.relevancia-content p {
+    color: var(--gray-700);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================
+   NOVOS TRIBUTOS
+======================================== */
+.novos-tributos-section {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.novos-tributos-section h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--gray-500);
+    margin: 0 0 1.5rem 0;
+}
+
+.tributos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tributo-card {
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    border-top: 4px solid;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tributo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tributo-card.cbs {
+    border-color: var(--info);
+}
+
+.tributo-card.ibs {
+    border-color: var(--success);
+}
+
+.tributo-card.is {
+    border-color: var(--warning);
+}
+
+.tributo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.tributo-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray-500);
+    font-weight: 600;
+}
+
+.tributo-aliquota {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.tributo-card.cbs .tributo-aliquota { color: var(--info); }
+.tributo-card.ibs .tributo-aliquota { color: var(--success); }
+.tributo-card.is .tributo-aliquota { color: var(--warning); }
+
+.tributo-card h3 {
+    font-size: 1.5rem;
+    color: var(--gray-800);
+    margin: 0 0 0.25rem 0;
+}
+
+.tributo-card > p {
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.tributo-substitui {
+    display: inline-block;
+    background: var(--gray-200);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--gray-600);
+}
+
+.aliquota-total {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.aliquota-label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.aliquota-valor {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.aliquota-fonte {
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+/* ========================================
+   ATUALIDADES
+======================================== */
+.atualidades-section {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.atualidades-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.atualidades-header h3 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-link {
+    color: var(--info);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.25s ease;
+}
+
+.btn-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.atualidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.atualidade-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    transition: background 0.25s ease;
+}
+
+.atualidade-card:hover {
+    background: var(--gray-100);
+}
+
+.atualidade-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--primary-light);
+    color: var(--white);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.atualidade-content h4 {
+    color: var(--gray-800);
+    font-size: 0.95rem;
+    margin: 0 0 0.35rem 0;
+}
+
+.atualidade-content p {
+    color: var(--gray-600);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ========================================
+   NAVEGAÇÃO PARA SEÇÕES
+======================================== */
+.navegacao-secoes {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.navegacao-secoes h2 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.secoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+}
+
+.secao-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.secao-card:hover {
+    background: var(--white);
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
+}
+
+.secao-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: background 0.25s ease;
+}
+
+.secao-card:hover .secao-icon {
+    background: var(--primary-light);
+}
+
+.secao-content {
+    flex: 1;
+}
+
+.secao-content h3 {
+    color: var(--gray-800);
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem 0;
+}
+
+.secao-content p {
+    color: var(--gray-500);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.secao-arrow {
+    color: var(--gray-400);
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.secao-card:hover .secao-arrow {
+    opacity: 1;
+    color: var(--primary);
+}
+
+/* ========================================
+   FONTES DE DADOS
+======================================== */
+.fontes-section {
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.fontes-section h3 {
+    color: var(--gray-700);
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.fontes-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.fonte-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--gray-600);
+    font-size: 0.85rem;
+}
+
+.fonte-item i {
+    font-size: 1.5rem;
+    color: var(--primary-light);
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+@media (max-width: 768px) {
+    .visao-geral-hero {
+        padding: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .relevancia-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .relevancia-icon {
+        margin: 0 auto;
+    }
+    
+    .tributos-grid,
+    .atualidades-grid,
+    .secoes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .aliquota-total {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .secao-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .secao-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .novos-tributos-section,
+    .atualidades-section,
+    .navegacao-secoes {
+        padding: 1.25rem;
+    }
+    
+    .hero-badges {
+        justify-content: center;
+    }
+}

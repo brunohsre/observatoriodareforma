@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruções de Acesso - Observatório da Reforma Tributária Brasileira</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1351B4;
+            --primary-dark: #071D41;
+            --accent: #F5A623;
+            --success: #168821;
+            --danger: #E52207;
+            --neutral-dark: #333333;
+            --neutral-light: #F8F8F8;
+            --white: #FFFFFF;
+        }
+        
+        html, body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--neutral-dark);
+            background: var(--neutral-light);
+        }
+        
+        @page {
+            size: A4 portrait;
+            margin: 20mm;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .page {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+        
+        .page {
+            max-width: 800px;
+            margin: 30px auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1351B4 0%, #071D41 100%);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #F5A623 0%, #E8A020 100%);
+        }
+        
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 40px;
+            color: var(--accent);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .badge i {
+            color: var(--accent);
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E5E7EB;
+        }
+        
+        .section-title i {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        /* Link Box */
+        .link-box {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+            border: 2px solid #93C5FD;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .link-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .link-url {
+            background: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 15px 20px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            color: var(--primary);
+            word-break: break-all;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .link-url i {
+            color: var(--primary);
+        }
+        
+        .link-note {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .link-note i {
+            color: var(--accent);
+            margin-top: 2px;
+        }
+        
+        /* Steps */
+        .steps {
+            counter-reset: step;
+        }
+        
+        .step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #F9FAFB;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step-number {
+            counter-increment: step;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .step-number::before {
+            content: counter(step);
+        }
+        
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            margin-bottom: 5px;
+        }
+        
+        .step-content p {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .feature-item {
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .feature-icon.success { background: var(--success); }
+        .feature-icon.warning { background: #F59E0B; }
+        .feature-icon.purple { background: #8B5CF6; }
+        
+        .feature-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-dark);
+        }
+        
+        /* Requirements */
+        .requirements {
+            background: #FFFBEB;
+            border: 2px solid #FDE047;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .requirements h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #92400E;
+            margin-bottom: 15px;
+        }
+        
+        .requirements ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .requirements li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #555;
+            border-bottom: 1px solid #FDE68A;
+        }
+        
+        .requirements li:last-child {
+            border-bottom: none;
+        }
+        
+        .requirements li i {
+            color: var(--success);
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .info-box-icon {
+            font-size: 40px;
+            color: var(--accent);
+        }
+        
+        .info-box-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .info-box-content p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+        
+        .footer-left i {
+            color: var(--accent);
+        }
+        
+        .footer-right {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #1351B4 0%, #071D41 100%);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(19, 81, 180, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(19, 81, 180, 0.4);
+        }
+        
+        /* Table */
+        .files-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .files-table th,
+        .files-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        
+        .files-table th {
+            background: var(--primary-dark);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .files-table th:first-child {
+            border-radius: 8px 0 0 0;
+        }
+        
+        .files-table th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+        
+        .files-table td {
+            font-size: 14px;
+        }
+        
+        .files-table tr:hover td {
+            background: #F9FAFB;
+        }
+        
+        .file-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background: #EFF6FF;
+            color: var(--primary);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de Impressão/PDF -->
+    <button class="print-btn no-print" onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> Exportar PDF
+    </button>
+
+    <div class="page">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-icon">
+                <i class="fas fa-chart-area"></i>
+            </div>
+            <h1>Observatório da Reforma Tributária Brasileira</h1>
+            <p>Instruções de Acesso e Visualização da Solução</p>
+            
+            <div class="badge-row">
+                <div class="badge">
+                    <i class="fas fa-trophy"></i>
+                    14º Prêmio SOF de Monografias
+                </div>
+                <div class="badge">
+                    <i class="fas fa-database"></i>
+                    Soluções em Dados Orçamentários
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Seção 1: Link de Acesso -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-link"></i>
+                    Link de Acesso à Solução
+                </h2>
+                
+                <div class="link-box">
+                    <div class="link-label">Endereço de Acesso pela Internet</div>
+                    <div class="link-url">
+                        <i class="fas fa-globe"></i>
+                        <span id="production-url">https://hvztvkww.gensparkspace.com/</span>
+                    </div>
+                    <div class="link-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>A solução está hospedada em ambiente web e pode ser acessada diretamente por qualquer navegador moderno, sem necessidade de instalação de software adicional.</span>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-cloud info-box-icon"></i>
+                    <div class="info-box-content">
+                        <h4>Acesso 100% Online</h4>
+                        <p>A plataforma funciona integralmente via navegador web. Não é necessário download, instalação ou configuração de ambiente local.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 2: Instruções de Abertura -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-play-circle"></i>
+                    Instruções de Abertura
+                </h2>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number"></div>
+                        <div class="step-content">
+                            <h4>Abra seu navegador de preferência</h4>
+                            <p>Recomendamos Google Chrome, Mozilla Firefox, Microsoft Edge ou Safari nas versões mais recentes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number"></div>
+                        <div class="step-content">
+                            <h4>Acesse o endereço da solução</h4>
+                            <p>Digite ou cole o link fornecido acima na barra de endereços do navegador e pressione Enter.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number"></div>
+                        <div class="step-content">
+                            <h4>Aguarde o carregamento completo</h4>
+                            <p>A plataforma carregará automaticamente todos os dados e gráficos. O tempo de carregamento é de aproximadamente 5-10 segundos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number"></div>
+                        <div class="step-content">
+                            <h4>Navegue pelas seções</h4>
+                            <p>Utilize o menu de navegação superior para acessar os diferentes módulos: Visão Geral, Impacto Redistributivo, Riscos Fiscais, Benchmarking, Projeções, Dados Abertos e Converse com os Dados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 3: Funcionalidades Disponíveis -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-th-large"></i>
+                    Funcionalidades da Plataforma
+                </h2>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <span class="feature-text">Dashboard com KPIs</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon success">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span class="feature-text">Gráficos Interativos</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <span class="feature-text">Matriz de Riscos Fiscais</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <span class="feature-text">Benchmarking entre UFs</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon success">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="feature-text">Projeções 2024-2032</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon warning">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <span class="feature-text">Exportação CSV</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon purple">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <span class="feature-text">Assistente IA</span>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon purple">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <span class="feature-text">Filtros Dinâmicos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 4: Requisitos Técnicos -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-laptop"></i>
+                    Requisitos Técnicos
+                </h2>
+                
+                <div class="requirements">
+                    <h4>
+                        <i class="fas fa-check-circle"></i>
+                        Requisitos Mínimos para Visualização
+                    </h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            Navegador web moderno (Chrome 90+, Firefox 88+, Edge 90+, Safari 14+)
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            Conexão com a internet (banda larga recomendada)
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            JavaScript habilitado no navegador
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            Resolução mínima: 1280x720 pixels (desktop) ou dispositivo móvel
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            Não requer instalação de plugins ou extensões
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Seção 5: Contato e Suporte -->
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-headset"></i>
+                    Suporte Técnico
+                </h2>
+                
+                <div class="info-box" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                    <i class="fas fa-envelope info-box-icon"></i>
+                    <div class="info-box-content">
+                        <h4>Em caso de dificuldades de acesso</h4>
+                        <p>A plataforma foi desenvolvida para funcionar em qualquer dispositivo com navegador web. Em caso de problemas, verifique sua conexão com a internet e tente atualizar a página (F5).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-left">
+                <i class="fas fa-landmark"></i>
+                <span>Secretaria de Orçamento Federal - SOF | Ministério do Planejamento e Orçamento</span>
+            </div>
+            <div class="footer-right">
+                Dezembro de 2025
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        console.log('📄 Para exportar como PDF:');
+        console.log('1. Clique no botão "Exportar PDF" ou pressione Ctrl+P');
+        console.log('2. Selecione "Salvar como PDF"');
+        console.log('3. Formato: A4 Retrato');
+        console.log('4. Margens: Padrão');
+    </script>
+</body>
+</html>

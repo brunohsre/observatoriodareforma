@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatório da Reforma Tributária Brasileira - Apresentação</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1351B4;
+            --primary-dark: #071D41;
+            --secondary: #2670E8;
+            --accent: #F5A623;
+            --success: #168821;
+            --danger: #E52207;
+            --warning: #FFCD07;
+            --neutral-dark: #333333;
+            --neutral-light: #F8F8F8;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1351B4 0%, #071D41 100%);
+            --gradient-accent: linear-gradient(135deg, #F5A623 0%, #E8A020 100%);
+        }
+        
+        html, body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--neutral-dark);
+            background: var(--neutral-light);
+        }
+        
+        /* Configuração para PDF Paisagem */
+        @page {
+            size: landscape;
+            margin: 0;
+        }
+        
+        /* Slide Base */
+        .slide {
+            width: 100%;
+            max-width: 1280px;
+            min-height: 720px;
+            margin: 0 auto 30px auto;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            page-break-after: always;
+            page-break-inside: avoid;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media print {
+            .slide {
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                page-break-after: always;
+                min-height: 100vh;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+        
+        /* Header do Slide */
+        .slide-header {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 30px 50px;
+            position: relative;
+        }
+        
+        .slide-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+        
+        .slide-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .slide-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+        
+        .slide-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+        }
+        
+        .slide-badge i {
+            color: var(--accent);
+        }
+        
+        /* Conteúdo do Slide */
+        .slide-content {
+            flex: 1;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Footer do Slide */
+        .slide-footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        
+        .slide-footer-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-logo i {
+            color: var(--accent);
+        }
+        
+        .slide-number {
+            background: var(--accent);
+            color: var(--primary-dark);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        /* ============================================
+           SLIDE 1: CAPA
+           ============================================ */
+        .slide-capa {
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .slide-capa .slide-content {
+            padding: 60px;
+        }
+        
+        .capa-icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px auto;
+            font-size: 60px;
+            color: var(--accent);
+        }
+        
+        .capa-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .capa-subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+        
+        .capa-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .capa-badge {
+            background: rgba(255,255,255,0.15);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+        
+        .capa-badge i {
+            color: var(--accent);
+        }
+        
+        .capa-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .capa-info-item {
+            text-align: center;
+        }
+        
+        .capa-info-label {
+            font-size: 13px;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .capa-info-value {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .capa-footer {
+            background: rgba(0,0,0,0.2);
+        }
+        
+        /* ============================================
+           SLIDE 2: O PROBLEMA
+           ============================================ */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .section-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: var(--white);
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* Cards de Problema */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .problem-card {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFF 100%);
+            border: 2px solid #FECACA;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--danger);
+        }
+        
+        .problem-card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(229, 34, 7, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--danger);
+            margin-bottom: 15px;
+        }
+        
+        .problem-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            margin-bottom: 10px;
+        }
+        
+        .problem-card-text {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 30px 40px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .highlight-icon {
+            font-size: 50px;
+            color: var(--accent);
+        }
+        
+        .highlight-content h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .highlight-content p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        
+        /* ============================================
+           SLIDE 3: DADOS DO PROBLEMA
+           ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card.danger {
+            border-color: #FCA5A5;
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFF 100%);
+        }
+        
+        .stat-card.success {
+            border-color: #86EFAC;
+            background: linear-gradient(135deg, #F0FDF4 0%, #FFF 100%);
+        }
+        
+        .stat-card.warning {
+            border-color: #FDE047;
+            background: linear-gradient(135deg, #FEFCE8 0%, #FFF 100%);
+        }
+        
+        .stat-card.info {
+            border-color: #93C5FD;
+            background: linear-gradient(135deg, #EFF6FF 0%, #FFF 100%);
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 15px auto;
+        }
+        
+        .stat-card.danger .stat-icon {
+            background: rgba(229, 34, 7, 0.1);
+            color: var(--danger);
+        }
+        
+        .stat-card.success .stat-icon {
+            background: rgba(22, 136, 33, 0.1);
+            color: var(--success);
+        }
+        
+        .stat-card.warning .stat-icon {
+            background: rgba(255, 205, 7, 0.2);
+            color: #B45309;
+        }
+        
+        .stat-card.info .stat-icon {
+            background: rgba(19, 81, 180, 0.1);
+            color: var(--primary);
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card.danger .stat-value { color: var(--danger); }
+        .stat-card.success .stat-value { color: var(--success); }
+        .stat-card.warning .stat-value { color: #B45309; }
+        .stat-card.info .stat-value { color: var(--primary); }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 25px;
+            height: 280px;
+        }
+        
+        .chart-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chart-title i {
+            color: var(--primary);
+        }
+        
+        /* ============================================
+           SLIDE 4-5: A SOLUÇÃO
+           ============================================ */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .solution-card {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .solution-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(19, 81, 180, 0.15);
+        }
+        
+        .solution-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: var(--white);
+            margin: 0 auto 20px auto;
+        }
+        
+        .solution-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+        
+        .solution-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+            color: #555;
+            border-bottom: 1px solid #F3F4F6;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li i {
+            color: var(--success);
+            font-size: 14px;
+        }
+        
+        /* Screenshot Mockup */
+        .screenshot-container {
+            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .screenshot-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .screenshot-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .screenshot-dot.red { background: #EF4444; }
+        .screenshot-dot.yellow { background: #F59E0B; }
+        .screenshot-dot.green { background: #10B981; }
+        
+        .screenshot-content {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            min-height: 200px;
+        }
+        
+        .screenshot-sidebar {
+            background: var(--primary-dark);
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .screenshot-nav-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 8px;
+            color: var(--white);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .screenshot-nav-item.active {
+            background: var(--accent);
+            color: var(--primary-dark);
+        }
+        
+        .screenshot-main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .screenshot-card {
+            background: #F9FAFB;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .screenshot-card-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .screenshot-card-label {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        /* ============================================
+           SLIDE 6: TECNOLOGIAS
+           ============================================ */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .tech-card {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--white);
+            margin: 0 auto 15px auto;
+        }
+        
+        .tech-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            margin-bottom: 5px;
+        }
+        
+        .tech-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Architecture */
+        .architecture-box {
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        
+        .arch-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .arch-layers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .arch-layer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .arch-layer-label {
+            width: 150px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            text-align: right;
+        }
+        
+        .arch-layer-content {
+            flex: 1;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid #E5E7EB;
+        }
+        
+        .arch-layer-content.primary {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+        }
+        
+        .arch-layer-content span {
+            font-size: 13px;
+            padding: 4px 10px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 6px;
+        }
+        
+        .arch-layer-content.primary span {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* ============================================
+           SLIDE 7: IMPACTO ESPERADO
+           ============================================ */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .impact-card {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+        
+        .impact-card.success::before {
+            background: linear-gradient(90deg, #10B981 0%, #059669 100%);
+        }
+        
+        .impact-card.warning::before {
+            background: linear-gradient(90deg, #F59E0B 0%, #D97706 100%);
+        }
+        
+        .impact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .impact-card.success .impact-icon {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+        
+        .impact-card.warning .impact-icon {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+        
+        .impact-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .impact-metrics {
+            list-style: none;
+        }
+        
+        .impact-metrics li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+        
+        .impact-metrics li:last-child {
+            border-bottom: none;
+        }
+        
+        .impact-metrics li i {
+            color: var(--success);
+            font-size: 16px;
+        }
+        
+        .impact-metrics li span {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .impact-metrics li strong {
+            color: var(--primary);
+        }
+        
+        /* Economy Box */
+        .economy-box {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 30px 40px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .economy-title {
+            font-size: 18px;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .economy-values {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+        
+        .economy-item {
+            text-align: center;
+        }
+        
+        .economy-label {
+            font-size: 13px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .economy-value {
+            font-size: 36px;
+            font-weight: 900;
+            margin-top: 5px;
+        }
+        
+        /* ============================================
+           SLIDE 8: CONFORMIDADE FMI
+           ============================================ */
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .compliance-card {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 25px;
+        }
+        
+        .compliance-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .compliance-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--white);
+        }
+        
+        .compliance-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .compliance-list {
+            list-style: none;
+        }
+        
+        .compliance-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+            color: #555;
+            border-bottom: 1px solid #F3F4F6;
+        }
+        
+        .compliance-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .compliance-list li i {
+            color: var(--success);
+            font-size: 14px;
+        }
+        
+        /* FMI Quote */
+        .fmi-quote {
+            background: linear-gradient(135deg, #1351B4 0%, #071D41 100%);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .fmi-icon {
+            font-size: 50px;
+            color: var(--accent);
+        }
+        
+        .fmi-text {
+            flex: 1;
+        }
+        
+        .fmi-text p {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .fmi-text cite {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* ============================================
+           SLIDE 9: AGRADECIMENTO/CONTATO
+           ============================================ */
+        .slide-final {
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .final-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px auto;
+            font-size: 50px;
+            color: var(--accent);
+        }
+        
+        .final-title {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+        
+        .final-subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+        
+        .final-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .final-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 15px;
+        }
+        
+        .final-feature i {
+            color: var(--accent);
+        }
+        
+        .final-contact {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .final-contact-label {
+            font-size: 14px;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        
+        .final-contact-items {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        .final-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+        
+        .final-contact-item i {
+            color: var(--accent);
+        }
+        
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .mb-40 { margin-bottom: 40px; }
+        
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(19, 81, 180, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(19, 81, 180, 0.4);
+        }
+        
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de Impressão/PDF -->
+    <button class="print-btn no-print" onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> Exportar PDF
+    </button>
+
+    <!-- ============================================
+         SLIDE 1: CAPA
+         ============================================ -->
+    <div class="slide slide-capa">
+        <div class="slide-content">
+            <div class="capa-icon">
+                <i class="fas fa-chart-area"></i>
+            </div>
+            <h1 class="capa-title">Observatório da Reforma<br>Tributária Brasileira</h1>
+            <p class="capa-subtitle">Plataforma Digital de Transparência e Análise de Impactos Fiscais</p>
+            
+            <div class="capa-badges">
+                <div class="capa-badge">
+                    <i class="fas fa-trophy"></i>
+                    14º Prêmio SOF de Monografias
+                </div>
+                <div class="capa-badge">
+                    <i class="fas fa-database"></i>
+                    Categoria: Soluções em Dados Orçamentários
+                </div>
+                <div class="capa-badge">
+                    <i class="fas fa-globe"></i>
+                    Inspirado no FMI Fiscal Transparency Code
+                </div>
+            </div>
+            
+            <div class="capa-info">
+                <div class="capa-info-item">
+                    <div class="capa-info-label">Referência Metodológica</div>
+                    <div class="capa-info-value">Fiscal Transparency Code - FMI</div>
+                </div>
+                <div class="capa-info-item">
+                    <div class="capa-info-label">Base Legal</div>
+                    <div class="capa-info-value">EC 132/2023 - Reforma Tributária</div>
+                </div>
+                <div class="capa-info-item">
+                    <div class="capa-info-label">Ano Base</div>
+                    <div class="capa-info-value">2022-2025</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer capa-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+                <span>|</span>
+                <span>Ministério do Planejamento e Orçamento</span>
+            </div>
+            <div class="slide-number">1</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 2: O PROBLEMA - CONTEXTO
+         ============================================ -->
+    <div class="slide">
+        <div class="slide-header">
+            <div class="slide-header-content">
+                <div>
+                    <h2 class="slide-title">O Problema: Gestão Orçamentária na Transição</h2>
+                    <p class="slide-subtitle">Desafios da maior reforma tributária das últimas décadas</p>
+                </div>
+                <div class="slide-badge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Contexto Crítico
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-balance-scale-right"></i>
+                </div>
+                <div>
+                    <h3 class="section-title">A Emenda Constitucional 132/2023</h3>
+                    <p class="section-subtitle">Criação do IBS e CBS em substituição a múltiplos tributos</p>
+                </div>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h4 class="problem-card-title">Falta de Visibilidade</h4>
+                    <p class="problem-card-text">Inexistência de ferramenta pública para visualizar os impactos redistributivos entre estados e municípios durante a transição.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h4 class="problem-card-title">Projeções Inacessíveis</h4>
+                    <p class="problem-card-text">Ausência de projeções plurianuais comparativas (pré vs. pós-reforma) acessíveis ao público geral e gestores locais.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <h4 class="problem-card-title">Sem Alertas de Risco</h4>
+                    <p class="problem-card-text">Falta de sistema automatizado para identificar entes federativos em situação de vulnerabilidade fiscal durante a transição.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-card-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h4 class="problem-card-title">Dados Fragmentados</h4>
+                    <p class="problem-card-text">Informações dispersas em múltiplas fontes, dificultando análise comparativa e monitoramento de desvios.</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <i class="fas fa-lightbulb highlight-icon"></i>
+                <div class="highlight-content">
+                    <h4>Lacunas Identificadas (Fiscal Transparency Code - FMI)</h4>
+                    <p><strong>Pilar I:</strong> Falta de consolidação de dados redistributivos | <strong>Pilar II:</strong> Ausência de projeções acessíveis | <strong>Pilar III:</strong> Inexistência de sistema de alertas para entes vulneráveis</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+            </div>
+            <div class="slide-number">2</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 3: DADOS DO PROBLEMA
+         ============================================ -->
+    <div class="slide">
+        <div class="slide-header">
+            <div class="slide-header-content">
+                <div>
+                    <h2 class="slide-title">Evidências: Os Números da Reforma</h2>
+                    <p class="slide-subtitle">Dados de referência do ano-base 2022</p>
+                </div>
+                <div class="slide-badge">
+                    <i class="fas fa-chart-pie"></i>
+                    Análise Quantitativa
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="stats-grid">
+                <div class="stat-card info">
+                    <div class="stat-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <div class="stat-value">5.569</div>
+                    <div class="stat-label">Municípios Impactados</div>
+                </div>
+                
+                <div class="stat-card danger">
+                    <div class="stat-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <div class="stat-value">1.030</div>
+                    <div class="stat-label">Municípios com Perdas (18%)</div>
+                </div>
+                
+                <div class="stat-card success">
+                    <div class="stat-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="stat-value">R$ 51,9 bi</div>
+                    <div class="stat-label">Volume de Ganhos</div>
+                </div>
+                
+                <div class="stat-card warning">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation"></i>
+                    </div>
+                    <div class="stat-value">R$ 50,6 bi</div>
+                    <div class="stat-label">Volume de Perdas</div>
+                </div>
+            </div>
+            
+            <div class="two-col">
+                <div class="chart-container">
+                    <div class="chart-title">
+                        <i class="fas fa-chart-bar"></i>
+                        Concentração de Perdas por UF
+                    </div>
+                    <div style="display: flex; align-items: flex-end; height: 180px; gap: 15px; padding: 20px 10px;">
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100%; background: linear-gradient(180deg, #EF4444 0%, #DC2626 100%); height: 160px; border-radius: 8px 8px 0 0;"></div>
+                            <span style="font-weight: 700; margin-top: 8px; color: var(--danger);">SP</span>
+                            <span style="font-size: 12px; color: #666;">58%</span>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100%; background: linear-gradient(180deg, #F97316 0%, #EA580C 100%); height: 60px; border-radius: 8px 8px 0 0;"></div>
+                            <span style="font-weight: 700; margin-top: 8px; color: #EA580C;">RJ</span>
+                            <span style="font-size: 12px; color: #666;">12%</span>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100%; background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 100%); height: 40px; border-radius: 8px 8px 0 0;"></div>
+                            <span style="font-weight: 700; margin-top: 8px; color: #D97706;">MG</span>
+                            <span style="font-size: 12px; color: #666;">8%</span>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100%; background: linear-gradient(180deg, #60A5FA 0%, #3B82F6 100%); height: 30px; border-radius: 8px 8px 0 0;"></div>
+                            <span style="font-weight: 700; margin-top: 8px; color: var(--primary);">PR</span>
+                            <span style="font-size: 12px; color: #666;">6%</span>
+                        </div>
+                        <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 100%; background: linear-gradient(180deg, #A1A1AA 0%, #71717A 100%); height: 25px; border-radius: 8px 8px 0 0;"></div>
+                            <span style="font-weight: 700; margin-top: 8px; color: #71717A;">Outros</span>
+                            <span style="font-size: 12px; color: #666;">16%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-title">
+                        <i class="fas fa-chart-pie"></i>
+                        Ganhadores vs Perdedores
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; height: 180px; gap: 30px;">
+                        <div style="position: relative; width: 150px; height: 150px;">
+                            <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="82, 100"/>
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="18, 100" stroke-dashoffset="-82"/>
+                            </svg>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                <div style="font-size: 24px; font-weight: 900; color: var(--primary-dark);">5.569</div>
+                                <div style="font-size: 11px; color: #666;">municípios</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 16px; height: 16px; background: #10B981; border-radius: 4px;"></div>
+                                <span style="font-size: 14px;"><strong>82%</strong> Ganhadores</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 16px; height: 16px; background: #EF4444; border-radius: 4px;"></div>
+                                <span style="font-size: 14px;"><strong>18%</strong> Perdedores</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%); margin-top: 25px;">
+                <i class="fas fa-map-marker-alt highlight-icon"></i>
+                <div class="highlight-content">
+                    <h4>Concentração Crítica de Risco</h4>
+                    <p>São Paulo concentra <strong>58% de todas as perdas</strong> projetadas da reforma tributária, representando um risco sistêmico que demanda monitoramento especial e planejamento de transição.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+            </div>
+            <div class="slide-number">3</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 4: A SOLUÇÃO - VISÃO GERAL
+         ============================================ -->
+    <div class="slide">
+        <div class="slide-header">
+            <div class="slide-header-content">
+                <div>
+                    <h2 class="slide-title">A Solução: Observatório da Reforma Tributária</h2>
+                    <p class="slide-subtitle">Plataforma digital de acesso público para transparência fiscal</p>
+                </div>
+                <div class="slide-badge">
+                    <i class="fas fa-check-circle"></i>
+                    Solução Proposta
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="solution-grid mb-40">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h4 class="solution-title">Visão Geral</h4>
+                    <p class="solution-desc">Dashboard com KPIs consolidados, impacto por UF e proporção ganhadores/perdedores</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> KPIs em tempo real</li>
+                        <li><i class="fas fa-check"></i> Gráficos interativos</li>
+                        <li><i class="fas fa-check"></i> Filtros dinâmicos</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h4 class="solution-title">Impacto Redistributivo</h4>
+                    <p class="solution-desc">Análise por nível de renda e comparativo pré vs pós-reforma</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Segmentação por renda</li>
+                        <li><i class="fas fa-check"></i> Análise por categoria</li>
+                        <li><i class="fas fa-check"></i> Comparativo temporal</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h4 class="solution-title">Matriz de Riscos</h4>
+                    <p class="solution-desc">Indicadores e alertas automáticos baseados no FMI</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 4 indicadores de risco</li>
+                        <li><i class="fas fa-check"></i> Alertas automáticos</li>
+                        <li><i class="fas fa-check"></i> Recomendações FMI</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h4 class="solution-title">Benchmarking</h4>
+                    <p class="solution-desc">Comparativo entre UFs com ranking de performance</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Comparação direta</li>
+                        <li><i class="fas fa-check"></i> Rankings automáticos</li>
+                        <li><i class="fas fa-check"></i> Métricas padronizadas</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="solution-title">Projeções</h4>
+                    <p class="solution-desc">Cenários Base, Otimista e Pessimista até 2032</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 3 cenários</li>
+                        <li><i class="fas fa-check"></i> Timeline 2024-2032</li>
+                        <li><i class="fas fa-check"></i> Análise de sensibilidade</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="solution-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="solution-title">Converse com os Dados</h4>
+                    <p class="solution-desc">Assistente IA para consultas em linguagem natural</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Perguntas em português</li>
+                        <li><i class="fas fa-check"></i> Respostas contextuais</li>
+                        <li><i class="fas fa-check"></i> Análises automáticas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                <i class="fas fa-database highlight-icon"></i>
+                <div class="highlight-content">
+                    <h4>Dados Abertos</h4>
+                    <p>Download em CSV, documentação de API REST pública, metadados completos e glossário - promovendo transparência total e interoperabilidade.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+            </div>
+            <div class="slide-number">4</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 5: INTERFACE DA PLATAFORMA
+         ============================================ -->
+    <div class="slide">
+        <div class="slide-header">
+            <div class="slide-header-content">
+                <div>
+                    <h2 class="slide-title">Interface da Plataforma</h2>
+                    <p class="slide-subtitle">Design moderno, responsivo e acessível</p>
+                </div>
+                <div class="slide-badge">
+                    <i class="fas fa-desktop"></i>
+                    Preview
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="two-col">
+                <div>
+                    <div class="section-header" style="margin-bottom: 25px;">
+                        <div class="section-icon" style="width: 50px; height: 50px; font-size: 22px;">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="section-title" style="font-size: 24px;">Diferenciais da Solução</h3>
+                        </div>
+                    </div>
+                    
+                    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <thead>
+                            <tr style="background: var(--primary-dark); color: white;">
+                                <th style="padding: 12px 15px; text-align: left; border-radius: 8px 0 0 0;">Aspecto</th>
+                                <th style="padding: 12px 15px; text-align: center;">Tradicional</th>
+                                <th style="padding: 12px 15px; text-align: center; border-radius: 0 8px 0 0;">Observatório</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #F9FAFB;">
+                                <td style="padding: 10px 15px; font-weight: 600;">Acesso</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #EF4444;">PDF estático</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #10B981;"><i class="fas fa-check"></i> Dashboard web</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 15px; font-weight: 600;">Atualização</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #EF4444;">Anual</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #10B981;"><i class="fas fa-check"></i> Contínua</td>
+                            </tr>
+                            <tr style="background: #F9FAFB;">
+                                <td style="padding: 10px 15px; font-weight: 600;">Análise de risco</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #EF4444;">Manual</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #10B981;"><i class="fas fa-check"></i> Automatizada</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 15px; font-weight: 600;">Comparabilidade</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #EF4444;">Difícil</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #10B981;"><i class="fas fa-check"></i> Benchmarking</td>
+                            </tr>
+                            <tr style="background: #F9FAFB;">
+                                <td style="padding: 10px 15px; font-weight: 600;">Projeções</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #EF4444;">Cenário único</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #10B981;"><i class="fas fa-check"></i> 3 cenários</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 15px; font-weight: 600;">Consultas</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #EF4444;">Especialista</td>
+                                <td style="padding: 10px 15px; text-align: center; color: #10B981;"><i class="fas fa-check"></i> IA conversacional</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="screenshot-container">
+                    <div class="screenshot-header">
+                        <div class="screenshot-dot red"></div>
+                        <div class="screenshot-dot yellow"></div>
+                        <div class="screenshot-dot green"></div>
+                        <span style="margin-left: 15px; font-size: 12px; color: #666;">observatorio-reforma.gov.br</span>
+                    </div>
+                    <div class="screenshot-content">
+                        <div class="screenshot-sidebar">
+                            <div class="screenshot-nav-item active">
+                                <i class="fas fa-home"></i> Visão Geral
+                            </div>
+                            <div class="screenshot-nav-item">
+                                <i class="fas fa-exchange-alt"></i> Impacto
+                            </div>
+                            <div class="screenshot-nav-item">
+                                <i class="fas fa-exclamation-triangle"></i> Riscos
+                            </div>
+                            <div class="screenshot-nav-item">
+                                <i class="fas fa-balance-scale"></i> Benchmark
+                            </div>
+                            <div class="screenshot-nav-item">
+                                <i class="fas fa-robot"></i> IA Chat
+                            </div>
+                        </div>
+                        <div class="screenshot-main">
+                            <div class="screenshot-card">
+                                <div class="screenshot-card-value">5.569</div>
+                                <div class="screenshot-card-label">Municípios</div>
+                            </div>
+                            <div class="screenshot-card">
+                                <div class="screenshot-card-value" style="color: #10B981;">R$ 51,9 bi</div>
+                                <div class="screenshot-card-label">Ganhos</div>
+                            </div>
+                            <div class="screenshot-card">
+                                <div class="screenshot-card-value" style="color: #EF4444;">R$ 50,6 bi</div>
+                                <div class="screenshot-card-label">Perdas</div>
+                            </div>
+                            <div class="screenshot-card" style="grid-column: span 3; background: linear-gradient(180deg, #EFF6FF 0%, #FFF 100%); height: 80px;">
+                                <div style="height: 100%; display: flex; align-items: flex-end; gap: 8px; padding: 10px;">
+                                    <div style="flex: 1; background: var(--primary); height: 60%; border-radius: 4px;"></div>
+                                    <div style="flex: 1; background: var(--primary); height: 45%; border-radius: 4px;"></div>
+                                    <div style="flex: 1; background: var(--primary); height: 70%; border-radius: 4px;"></div>
+                                    <div style="flex: 1; background: var(--primary); height: 30%; border-radius: 4px;"></div>
+                                    <div style="flex: 1; background: var(--primary); height: 55%; border-radius: 4px;"></div>
+                                    <div style="flex: 1; background: var(--primary); height: 40%; border-radius: 4px;"></div>
+                                    <div style="flex: 1; background: var(--danger); height: 80%; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+            </div>
+            <div class="slide-number">5</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 6: TECNOLOGIAS
+         ============================================ -->
+    <div class="slide">
+        <div class="slide-header">
+            <div class="slide-header-content">
+                <div>
+                    <h2 class="slide-title">Stack Tecnológico</h2>
+                    <p class="slide-subtitle">Tecnologias modernas, abertas e escaláveis</p>
+                </div>
+                <div class="slide-badge">
+                    <i class="fas fa-code"></i>
+                    Arquitetura
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="tech-grid mb-30">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <div class="tech-name">HTML5</div>
+                    <div class="tech-desc">Estrutura semântica</div>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <div class="tech-name">CSS3</div>
+                    <div class="tech-desc">Design responsivo</div>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <div class="tech-name">JavaScript ES6+</div>
+                    <div class="tech-desc">Interatividade</div>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <div class="tech-name">ECharts 5.x</div>
+                    <div class="tech-desc">Visualizações</div>
+                </div>
+                
+                <div class="tech-card">
+                    <div class="tech-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="tech-name">IA Assistente</div>
+                    <div class="tech-desc">Consultas naturais</div>
+                </div>
+            </div>
+            
+            <div class="architecture-box">
+                <div class="arch-title">
+                    <i class="fas fa-layer-group"></i> Arquitetura em Camadas
+                </div>
+                <div class="arch-layers">
+                    <div class="arch-layer">
+                        <div class="arch-layer-label">INTERFACE</div>
+                        <div class="arch-layer-content primary">
+                            <span>Visão Geral</span>
+                            <span>Impacto</span>
+                            <span>Riscos</span>
+                            <span>Benchmark</span>
+                            <span>Projeções</span>
+                            <span>IA Chat</span>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label">VISUALIZAÇÃO</div>
+                        <div class="arch-layer-content">
+                            <span>ECharts</span>
+                            <span>CSS Grid</span>
+                            <span>Responsivo</span>
+                            <span>Acessível</span>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label">DADOS</div>
+                        <div class="arch-layer-content">
+                            <span>JavaScript Modules</span>
+                            <span>JSON Structures</span>
+                            <span>REST API</span>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-label">FONTES (Futuro)</div>
+                        <div class="arch-layer-content">
+                            <span>SIOP</span>
+                            <span>Tesouro Nacional</span>
+                            <span>Portal Transparência</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin-top: 25px;">
+                <div style="flex: 1; background: #F0FDF4; border: 2px solid #86EFAC; border-radius: 12px; padding: 15px; display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-universal-access" style="font-size: 24px; color: #10B981;"></i>
+                    <div>
+                        <div style="font-weight: 700; color: var(--neutral-dark);">WCAG 2.1</div>
+                        <div style="font-size: 12px; color: #666;">Acessibilidade</div>
+                    </div>
+                </div>
+                <div style="flex: 1; background: #EFF6FF; border: 2px solid #93C5FD; border-radius: 12px; padding: 15px; display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-mobile-alt" style="font-size: 24px; color: var(--primary);"></i>
+                    <div>
+                        <div style="font-weight: 700; color: var(--neutral-dark);">Mobile-First</div>
+                        <div style="font-size: 12px; color: #666;">Responsivo</div>
+                    </div>
+                </div>
+                <div style="flex: 1; background: #FEF3C7; border: 2px solid #FDE047; border-radius: 12px; padding: 15px; display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-lock-open" style="font-size: 24px; color: #D97706;"></i>
+                    <div>
+                        <div style="font-weight: 700; color: var(--neutral-dark);">Dados Abertos</div>
+                        <div style="font-size: 12px; color: #666;">CSV + API</div>
+                    </div>
+                </div>
+                <div style="flex: 1; background: #F3E8FF; border: 2px solid #C4B5FD; border-radius: 12px; padding: 15px; display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-landmark" style="font-size: 24px; color: #7C3AED;"></i>
+                    <div>
+                        <div style="font-weight: 700; color: var(--neutral-dark);">Gov.br</div>
+                        <div style="font-size: 12px; color: #666;">Padrão Visual</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+            </div>
+            <div class="slide-number">6</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 7: IMPACTO ESPERADO
+         ============================================ -->
+    <div class="slide">
+        <div class="slide-header">
+            <div class="slide-header-content">
+                <div>
+                    <h2 class="slide-title">Impacto Esperado</h2>
+                    <p class="slide-subtitle">Benefícios quantificáveis para gestão pública</p>
+                </div>
+                <div class="slide-badge">
+                    <i class="fas fa-rocket"></i>
+                    Resultados
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="impact-grid mb-30">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4 class="impact-title">Gestores Públicos</h4>
+                    <ul class="impact-metrics">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tempo de análise: <strong>-80%</strong></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Cobertura: <strong>100% dos entes</strong></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Antecipação de crises: <strong>+12 meses</strong></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Decisões <strong>baseadas em dados</strong></span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="impact-card success">
+                    <div class="impact-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h4 class="impact-title">Órgãos de Controle</h4>
+                    <ul class="impact-metrics">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>TCU/TCEs:</strong> Priorização por risco</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>CGU:</strong> Vulnerabilidades mapeadas</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Congresso:</strong> Subsídios para fiscalização</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Auditorias <strong>mais eficientes</strong></span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="impact-card warning">
+                    <div class="impact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="impact-title">Sociedade</h4>
+                    <ul class="impact-metrics">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Transparência:</strong> Dados públicos</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Accountability:</strong> Acompanhamento cidadão</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Participação:</strong> Dados abertos</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Pesquisa e <strong>jornalismo de dados</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="economy-box">
+                <div class="economy-title">
+                    <i class="fas fa-piggy-bank"></i> Economia Potencial com Melhor Gestão de Riscos
+                </div>
+                <div class="economy-values">
+                    <div class="economy-item">
+                        <div class="economy-label">Cenário Conservador</div>
+                        <div class="economy-value">R$ 2-5 bi/ano</div>
+                    </div>
+                    <div class="economy-item">
+                        <div class="economy-label">Cenário Moderado</div>
+                        <div class="economy-value">R$ 5-10 bi/ano</div>
+                    </div>
+                    <div class="economy-item">
+                        <div class="economy-label">Cenário Otimista</div>
+                        <div class="economy-value">R$ 10-15 bi/ano</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+            </div>
+            <div class="slide-number">7</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 8: CONFORMIDADE FMI
+         ============================================ -->
+    <div class="slide">
+        <div class="slide-header">
+            <div class="slide-header-content">
+                <div>
+                    <h2 class="slide-title">Conformidade com Padrões Internacionais</h2>
+                    <p class="slide-subtitle">Alinhamento com Fiscal Transparency Code do FMI</p>
+                </div>
+                <div class="slide-badge">
+                    <i class="fas fa-globe"></i>
+                    FMI Standards
+                </div>
+            </div>
+        </div>
+        <div class="slide-content">
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-header">
+                        <div class="compliance-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="compliance-title">Pilar I: Relatórios Fiscais</div>
+                    </div>
+                    <ul class="compliance-list">
+                        <li><i class="fas fa-check"></i> Cobertura de todos os 5.569 municípios</li>
+                        <li><i class="fas fa-check"></i> Dados consolidados e padronizados</li>
+                        <li><i class="fas fa-check"></i> Histórico e série temporal</li>
+                        <li><i class="fas fa-check"></i> Metodologia documentada</li>
+                    </ul>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-header">
+                        <div class="compliance-icon" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="compliance-title">Pilar II: Previsões Fiscais</div>
+                    </div>
+                    <ul class="compliance-list">
+                        <li><i class="fas fa-check"></i> Projeções plurianuais (2024-2032)</li>
+                        <li><i class="fas fa-check"></i> Múltiplos cenários (3)</li>
+                        <li><i class="fas fa-check"></i> Análise de sensibilidade</li>
+                        <li><i class="fas fa-check"></i> Premissas transparentes</li>
+                    </ul>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-header">
+                        <div class="compliance-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="compliance-title">Pilar III: Gestão de Riscos</div>
+                    </div>
+                    <ul class="compliance-list">
+                        <li><i class="fas fa-check"></i> Sistema de alertas automáticos</li>
+                        <li><i class="fas fa-check"></i> Identificação de entes vulneráveis</li>
+                        <li><i class="fas fa-check"></i> Indicadores de risco (IRF)</li>
+                        <li><i class="fas fa-check"></i> Recomendações de mitigação</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="fmi-quote">
+                <i class="fas fa-quote-left fmi-icon"></i>
+                <div class="fmi-text">
+                    <p>"A transparência fiscal não é apenas uma obrigação, é um instrumento de transformação da gestão pública."</p>
+                    <cite>— IMF Fiscal Transparency Code (2019)</cite>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 25px;">
+                <div style="background: var(--white); border: 2px solid #E5E7EB; border-radius: 12px; padding: 20px; text-align: center;">
+                    <i class="fas fa-check-double" style="font-size: 28px; color: var(--success); margin-bottom: 10px;"></i>
+                    <div style="font-weight: 700; color: var(--neutral-dark);">ODS 16</div>
+                    <div style="font-size: 12px; color: #666;">Instituições transparentes</div>
+                </div>
+                <div style="background: var(--white); border: 2px solid #E5E7EB; border-radius: 12px; padding: 20px; text-align: center;">
+                    <i class="fas fa-digital-tachograph" style="font-size: 28px; color: var(--primary); margin-bottom: 10px;"></i>
+                    <div style="font-weight: 700; color: var(--neutral-dark);">Gov Digital</div>
+                    <div style="font-size: 12px; color: #666;">Serviços acessíveis</div>
+                </div>
+                <div style="background: var(--white); border: 2px solid #E5E7EB; border-radius: 12px; padding: 20px; text-align: center;">
+                    <i class="fas fa-award" style="font-size: 28px; color: #F59E0B; margin-bottom: 10px;"></i>
+                    <div style="font-weight: 700; color: var(--neutral-dark);">FTE Brasil</div>
+                    <div style="font-size: 12px; color: #666;">Melhoria no ranking</div>
+                </div>
+                <div style="background: var(--white); border: 2px solid #E5E7EB; border-radius: 12px; padding: 20px; text-align: center;">
+                    <i class="fas fa-scale-balanced" style="font-size: 28px; color: #8B5CF6; margin-bottom: 10px;"></i>
+                    <div style="font-weight: 700; color: var(--neutral-dark);">EC 132/2023</div>
+                    <div style="font-size: 12px; color: #666;">Conformidade legal</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+            </div>
+            <div class="slide-number">8</div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SLIDE 9: ENCERRAMENTO
+         ============================================ -->
+    <div class="slide slide-final">
+        <div class="slide-content">
+            <div class="final-icon">
+                <i class="fas fa-chart-area"></i>
+            </div>
+            <h1 class="final-title">Observatório da Reforma<br>Tributária Brasileira</h1>
+            <p class="final-subtitle">Transparência fiscal para uma transição segura e eficiente</p>
+            
+            <div class="final-features">
+                <div class="final-feature">
+                    <i class="fas fa-check-circle"></i>
+                    5.569 municípios monitorados
+                </div>
+                <div class="final-feature">
+                    <i class="fas fa-check-circle"></i>
+                    Alertas automáticos de risco
+                </div>
+                <div class="final-feature">
+                    <i class="fas fa-check-circle"></i>
+                    IA conversacional integrada
+                </div>
+                <div class="final-feature">
+                    <i class="fas fa-check-circle"></i>
+                    100% dados abertos
+                </div>
+            </div>
+            
+            <div class="final-contact">
+                <div class="final-contact-label">14º Prêmio SOF de Monografias</div>
+                <div class="final-contact-items">
+                    <div class="final-contact-item">
+                        <i class="fas fa-trophy"></i>
+                        Categoria: Soluções em Dados Orçamentários
+                    </div>
+                    <div class="final-contact-item">
+                        <i class="fas fa-calendar"></i>
+                        Dezembro 2025
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer capa-footer">
+            <div class="slide-footer-left">
+                <div class="footer-logo">
+                    <i class="fas fa-landmark"></i>
+                    <span>Secretaria de Orçamento Federal - SOF</span>
+                </div>
+                <span>|</span>
+                <span>Ministério do Planejamento e Orçamento</span>
+            </div>
+            <div class="slide-number">9</div>
+        </div>
+    </div>
+
+    <script>
+        // Adiciona instruções para exportação PDF
+        console.log('📄 Para exportar como PDF:');
+        console.log('1. Clique no botão "Exportar PDF" ou pressione Ctrl+P');
+        console.log('2. Selecione "Salvar como PDF"');
+        console.log('3. Orientação: Paisagem');
+        console.log('4. Margens: Nenhuma');
+        console.log('5. Ative "Gráficos de fundo" se disponível');
+    </script>
+</body>
+</html>

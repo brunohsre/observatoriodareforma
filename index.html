@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Observatório da Reforma Tributária Brasileira - Plataforma de Transparência Fiscal para monitoramento dos impactos da EC 132/2023 nos estados e municípios brasileiros">
+    <title>Observatório da Reforma Tributária Brasileira | IBS, CBS e IS</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/trilha-govbr.css">
+    <link rel="stylesheet" href="css/visao-geral.css">
+    <link rel="stylesheet" href="css/timeline-novo.css">
+</head>
+<body>
+    <!-- Skip Link para Acessibilidade -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Header Institucional -->
+    <header class="header" role="banner">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span class="transparency-badge">
+                        <i class="fas fa-shield-alt"></i> Transparência Fiscal
+                    </span>
+                    <span class="fmi-reference">Inspirado no Fiscal Transparency Code - FMI</span>
+                </div>
+                <div class="header-top-right">
+                    <a href="#" onclick="abrirModalMetodologia(); return false;">
+                        <i class="fas fa-book"></i> Metodologia
+                    </a>
+                    <a href="#section-dados-abertos">
+                        <i class="fas fa-database"></i> Dados Abertos
+                    </a>
+                    <a href="#" onclick="mostrarAPI(); return false;">
+                        <i class="fas fa-code"></i> API
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="brand">
+                    <div class="brand-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="brand-text">
+                        <h1>Observatório da Reforma Tributária Brasileira</h1>
+                        <p>Transparência e Análise de Impactos do IBS, CBS e IS (EC 132/2023)</p>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <div class="info-item">
+                        <span class="info-label">Última Atualização</span>
+                        <span class="info-value" id="lastUpdate">15/12/2025</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Base Legal</span>
+                        <span class="info-value">
+                            <a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm" target="_blank">EC 132/2023</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navegação Principal -->
+        <nav class="main-nav" role="navigation">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active" data-section="visao-geral">
+                        <i class="fas fa-home"></i> Visão Geral
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-section="reforma-numeros">
+                        <i class="fas fa-calculator"></i> Reforma em Números
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-section="impacto-arrecadacao">
+                        <i class="fas fa-coins"></i> Impacto na Arrecadação
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-section="riscos-fiscais">
+                        <i class="fas fa-exclamation-triangle"></i> Riscos Fiscais
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-section="trilha-aprendizagem">
+                        <i class="fas fa-graduation-cap"></i> Trilha de Aprendizagem
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-section="timeline-transicao">
+                        <i class="fas fa-calendar-alt"></i> Timeline da Transição
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-section="dados-abertos">
+                        <i class="fas fa-table"></i> Dados Abertos
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-section="assistente-ia">
+                        <i class="fas fa-robot"></i> Assistente IA
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content" id="main-content" role="main">
+        <div class="container">
+            
+            <!-- ======================================== -->
+            <!-- SEÇÃO 1: VISÃO GERAL -->
+            <!-- ======================================== -->
+            <section class="section active" id="section-visao-geral">
+                
+                <!-- Hero de Apresentação -->
+                <div class="visao-geral-hero">
+                    <div class="hero-content">
+                        <h1><i class="fas fa-chart-area"></i> Observatório da Reforma Tributária</h1>
+                        <p class="hero-subtitle">Plataforma de Transparência Fiscal para o IVA Dual Brasileiro</p>
+                        <p class="hero-description">
+                            Esta solução permite o acompanhamento dos impactos da Reforma Tributária do Consumo (EC 132/2023) 
+                            nos orçamentos públicos de estados e municípios, fornecendo dados e análises essenciais para 
+                            o planejamento da transição tributária 2026-2033.
+                        </p>
+                    </div>
+                    <div class="hero-badges">
+                        <span class="badge-gov"><i class="fas fa-shield-alt"></i> Transparência Fiscal</span>
+                        <span class="badge-gov"><i class="fas fa-database"></i> Dados Oficiais</span>
+                        <span class="badge-gov"><i class="fas fa-robot"></i> IA Integrada</span>
+                    </div>
+                </div>
+
+                <!-- Seção de Relevância -->
+                <div class="relevancia-box">
+                    <div class="relevancia-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="relevancia-content">
+                        <h3>Relevância para a Gestão Orçamentária</h3>
+                        <p>O Observatório oferece aos gestores públicos uma ferramenta de inteligência fiscal para antecipar os impactos da substituição do ICMS e ISS pelo IBS, permitindo ajustes orçamentários e planejamento estratégico durante o período de transição. Com dados do Ministério da Fazenda e metodologia baseada no Fiscal Transparency Code (FMI), a plataforma democratiza o acesso a informações críticas para a sustentabilidade fiscal de estados e municípios brasileiros.</p>
+                    </div>
+                </div>
+
+                <!-- Novos Tributos - Cards de Destaque -->
+                <div class="novos-tributos-section">
+                    <h2><i class="fas fa-exchange-alt"></i> O Novo Sistema Tributário</h2>
+                    <p class="section-subtitle">IVA Dual: simplificação de 5 tributos em 3 novos impostos</p>
+                    
+                    <div class="tributos-grid">
+                        <div class="tributo-card cbs">
+                            <div class="tributo-header">
+                                <span class="tributo-tag">Federal</span>
+                                <span class="tributo-aliquota">8,8%</span>
+                            </div>
+                            <h3>CBS</h3>
+                            <p>Contribuição sobre Bens e Serviços</p>
+                            <span class="tributo-substitui">Substitui PIS e COFINS</span>
+                        </div>
+                        <div class="tributo-card ibs">
+                            <div class="tributo-header">
+                                <span class="tributo-tag">Subnacional</span>
+                                <span class="tributo-aliquota">17,7%</span>
+                            </div>
+                            <h3>IBS</h3>
+                            <p>Imposto sobre Bens e Serviços</p>
+                            <span class="tributo-substitui">Substitui ICMS e ISS</span>
+                        </div>
+                        <div class="tributo-card is">
+                            <div class="tributo-header">
+                                <span class="tributo-tag">Seletivo</span>
+                                <span class="tributo-aliquota">Variável</span>
+                            </div>
+                            <h3>IS</h3>
+                            <p>Imposto Seletivo</p>
+                            <span class="tributo-substitui">Incide sobre produtos nocivos</span>
+                        </div>
+                    </div>
+                    
+                    <div class="aliquota-total">
+                        <span class="aliquota-label">Alíquota Neutra Total (IVA Dual)</span>
+                        <span class="aliquota-valor">26,5%</span>
+                        <span class="aliquota-fonte">Estimativa Ministério da Fazenda</span>
+                    </div>
+                </div>
+
+                <!-- Atualidades da Receita Federal -->
+                <div class="atualidades-section">
+                    <div class="atualidades-header">
+                        <h3><i class="fas fa-newspaper"></i> Orientações para 2026 - Receita Federal</h3>
+                        <a href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/reforma-consumo/orientacoes-2026" target="_blank" class="btn-link">
+                            Ver todas <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <div class="atualidades-grid">
+                        <div class="atualidade-card">
+                            <div class="atualidade-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="atualidade-content">
+                                <h4>Período de Teste 2026-2027</h4>
+                                <p>CBS 0,9% e IBS 0,1% entram em vigor como teste operacional do sistema de cobrança.</p>
+                            </div>
+                        </div>
+                        <div class="atualidade-card">
+                            <div class="atualidade-icon"><i class="fas fa-cogs"></i></div>
+                            <div class="atualidade-content">
+                                <h4>Split Payment Obrigatório</h4>
+                                <p>Recolhimento automático na liquidação financeira da operação. Adaptação de sistemas requerida.</p>
+                            </div>
+                        </div>
+                        <div class="atualidade-card">
+                            <div class="atualidade-icon"><i class="fas fa-building"></i></div>
+                            <div class="atualidade-content">
+                                <h4>Comitê Gestor do IBS</h4>
+                                <p>Órgão colegiado de estados e municípios responsável pela gestão do IBS durante a transição.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navegação para Seções -->
+                <div class="navegacao-secoes">
+                    <h2><i class="fas fa-compass"></i> Explore o Observatório</h2>
+                    <p class="section-subtitle">Acesse as diferentes análises e ferramentas disponíveis</p>
+                    
+                    <div class="secoes-grid">
+                        <a href="#" class="secao-card" data-section="reforma-numeros">
+                            <div class="secao-icon"><i class="fas fa-calculator"></i></div>
+                            <div class="secao-content">
+                                <h3>Reforma em Números</h3>
+                                <p>Dashboard com dados consolidados: RCL, arrecadação federal, comparativo sistema atual vs IVA Dual.</p>
+                            </div>
+                            <div class="secao-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        <a href="#" class="secao-card" data-section="impacto-arrecadacao">
+                            <div class="secao-icon"><i class="fas fa-coins"></i></div>
+                            <div class="secao-content">
+                                <h3>Impacto na Arrecadação</h3>
+                                <p>Projeções por UF e município: ganhadores, perdedores, saldo líquido da transição ICMS/ISS→IBS.</p>
+                            </div>
+                            <div class="secao-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        <a href="#" class="secao-card" data-section="riscos-fiscais">
+                            <div class="secao-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="secao-content">
+                                <h3>Riscos Fiscais</h3>
+                                <p>Matriz de risco com indicadores: concentração de perdas, capitais afetadas, municípios críticos.</p>
+                            </div>
+                            <div class="secao-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        <a href="#" class="secao-card" data-section="trilha-aprendizagem">
+                            <div class="secao-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="secao-content">
+                                <h3>Trilha de Aprendizagem</h3>
+                                <p>Materiais educativos, cursos ENAP/EVG, trilhas gamificadas por perfil profissional.</p>
+                            </div>
+                            <div class="secao-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        <a href="#" class="secao-card" data-section="timeline-transicao">
+                            <div class="secao-icon"><i class="fas fa-calendar-alt"></i></div>
+                            <div class="secao-content">
+                                <h3>Timeline da Transição</h3>
+                                <p>Cronograma 2023-2033 com marcos legais, projeções e cenários de implementação do IVA Dual.</p>
+                            </div>
+                            <div class="secao-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                        <a href="#" class="secao-card" data-section="assistente-ia">
+                            <div class="secao-icon"><i class="fas fa-robot"></i></div>
+                            <div class="secao-content">
+                                <h3>Assistente IA</h3>
+                                <p>Chat inteligente para tirar dúvidas sobre IBS, CBS, Split Payment, Cashback e mais.</p>
+                            </div>
+                            <div class="secao-arrow"><i class="fas fa-chevron-right"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fontes de Dados -->
+                <div class="fontes-section">
+                    <h3><i class="fas fa-database"></i> Fontes de Dados Oficiais</h3>
+                    <div class="fontes-grid">
+                        <div class="fonte-item">
+                            <i class="fas fa-landmark"></i>
+                            <span>STN</span>
+                        </div>
+                        <div class="fonte-item">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>RFB</span>
+                        </div>
+                        <div class="fonte-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>CONFAZ</span>
+                        </div>
+                        <div class="fonte-item">
+                            <i class="fas fa-coins"></i>
+                            <span>MF</span>
+                        </div>
+                        <div class="fonte-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>IBGE</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SEÇÃO 2: REFORMA EM NÚMEROS -->
+            <!-- ======================================== -->
+            <section class="section" id="section-reforma-numeros">
+                <div class="section-header">
+                    <h2><i class="fas fa-calculator"></i> Reforma Tributária em Números</h2>
+                    <p>Dashboard com dados consolidados sobre o novo sistema tributário (EC 132/2023 + LC 214/2025)</p>
+                </div>
+
+                <!-- Big Number Cards -->
+                <div class="big-number-cards">
+                    <div class="big-number-card primary">
+                        <div class="big-number-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div class="big-number-content">
+                            <span class="big-number-label">Receita Corrente Líquida (2024)</span>
+                            <span class="big-number-value">R$ 2,22 tri</span>
+                            <span class="big-number-detail"><i class="fas fa-arrow-up"></i> +8,03% vs 2023</span>
+                        </div>
+                    </div>
+                    <div class="big-number-card success">
+                        <div class="big-number-icon"><i class="fas fa-coins"></i></div>
+                        <div class="big-number-content">
+                            <span class="big-number-label">Arrecadação Tributária Federal</span>
+                            <span class="big-number-value">R$ 2,35 tri</span>
+                            <span class="big-number-detail">Acumulado 2024 (estimativa)</span>
+                        </div>
+                    </div>
+                    <div class="big-number-card info">
+                        <div class="big-number-icon"><i class="fas fa-percentage"></i></div>
+                        <div class="big-number-content">
+                            <span class="big-number-label">Alíquota Neutra IVA Dual</span>
+                            <span class="big-number-value">26,5%</span>
+                            <span class="big-number-detail">CBS 8,8% + IBS 17,7%</span>
+                        </div>
+                    </div>
+                    <div class="big-number-card warning">
+                        <div class="big-number-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="big-number-content">
+                            <span class="big-number-label">Projeção RCL 2025</span>
+                            <span class="big-number-value">R$ 2,38 tri</span>
+                            <span class="big-number-detail">PLOA 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos lado a lado -->
+                <div class="charts-grid-2">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-bar"></i> Comparativo: Sistema Atual vs IVA Dual</h3>
+                        </div>
+                        <div class="chart-body">
+                            <div id="chartComparativoCarga" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-pie"></i> Arrecadação Federal por Tributo (2024)</h3>
+                        </div>
+                        <div class="chart-body">
+                            <div id="chartArrecadacao" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cards informativos sobre os novos tributos -->
+                <div class="info-cards-grid">
+                    <div class="info-card cbs">
+                        <div class="info-card-header">
+                            <span class="info-badge federal">Federal</span>
+                            <h4>CBS</h4>
+                            <span class="info-subtitle">Contribuição sobre Bens e Serviços</span>
+                        </div>
+                        <div class="info-card-body">
+                            <div class="aliquota-display">
+                                <span class="aliquota-valor">8,8%</span>
+                                <span class="aliquota-label">Alíquota Estimada</span>
+                            </div>
+                            <ul class="info-features">
+                                <li><i class="fas fa-check"></i> Substitui PIS/COFINS</li>
+                                <li><i class="fas fa-check"></i> Não-cumulativo</li>
+                                <li><i class="fas fa-check"></i> Crédito amplo</li>
+                                <li><i class="fas fa-check"></i> Gerido pela RFB</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-card ibs">
+                        <div class="info-card-header">
+                            <span class="info-badge subnacional">Subnacional</span>
+                            <h4>IBS</h4>
+                            <span class="info-subtitle">Imposto sobre Bens e Serviços</span>
+                        </div>
+                        <div class="info-card-body">
+                            <div class="aliquota-display">
+                                <span class="aliquota-valor">17,7%</span>
+                                <span class="aliquota-label">Alíquota Estimada</span>
+                            </div>
+                            <ul class="info-features">
+                                <li><i class="fas fa-check"></i> Substitui ICMS/ISS</li>
+                                <li><i class="fas fa-check"></i> Comitê Gestor</li>
+                                <li><i class="fas fa-check"></i> Princípio do destino</li>
+                                <li><i class="fas fa-check"></i> Split Payment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-card is">
+                        <div class="info-card-header">
+                            <span class="info-badge seletivo">Seletivo</span>
+                            <h4>IS</h4>
+                            <span class="info-subtitle">Imposto Seletivo</span>
+                        </div>
+                        <div class="info-card-body">
+                            <div class="aliquota-display">
+                                <span class="aliquota-valor">Variável</span>
+                                <span class="aliquota-label">"Imposto do Pecado"</span>
+                            </div>
+                            <ul class="info-features">
+                                <li><i class="fas fa-check"></i> Cigarros e bebidas</li>
+                                <li><i class="fas fa-check"></i> Veículos poluentes</li>
+                                <li><i class="fas fa-check"></i> Bebidas açucaradas</li>
+                                <li><i class="fas fa-check"></i> Função extrafiscal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SEÇÃO 3: IMPACTO NA ARRECADAÇÃO -->
+            <!-- ======================================== -->
+            <section class="section" id="section-impacto-arrecadacao">
+                <div class="section-header">
+                    <h2><i class="fas fa-coins"></i> Impacto na Arrecadação por UF</h2>
+                    <p>Projeções do efeito redistributivo do IBS sobre estados e municípios brasileiros</p>
+                </div>
+
+                <!-- Cards de Resumo com dados reais -->
+                <div class="impacto-resumo-cards">
+                    <div class="impacto-card ganhos">
+                        <div class="impacto-icon"><i class="fas fa-arrow-up"></i></div>
+                        <div class="impacto-content">
+                            <span class="impacto-valor">R$ 51,9 bi</span>
+                            <span class="impacto-label">Ganhos Totais Projetados</span>
+                            <span class="impacto-detalhe">4.539 municípios beneficiados</span>
+                        </div>
+                    </div>
+                    <div class="impacto-card perdas">
+                        <div class="impacto-icon"><i class="fas fa-arrow-down"></i></div>
+                        <div class="impacto-content">
+                            <span class="impacto-valor">R$ 50,6 bi</span>
+                            <span class="impacto-label">Perdas Totais Projetadas</span>
+                            <span class="impacto-detalhe">1.030 municípios afetados</span>
+                        </div>
+                    </div>
+                    <div class="impacto-card saldo">
+                        <div class="impacto-icon"><i class="fas fa-balance-scale"></i></div>
+                        <div class="impacto-content">
+                            <span class="impacto-valor positive">+R$ 1,3 bi</span>
+                            <span class="impacto-label">Saldo Líquido Nacional</span>
+                            <span class="impacto-detalhe">Efeito redistributivo positivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Impacto por Região -->
+                <div class="chart-card full-width">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-bar"></i> Impacto Redistributivo por Região</h3>
+                    </div>
+                    <div class="chart-body">
+                        <div id="chartImpactoRegiao" style="height: 400px;"></div>
+                    </div>
+                </div>
+
+                <!-- Tabela de Impacto por UF -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3><i class="fas fa-table"></i> Detalhamento por UF - Efeito Redistributivo do IBS</h3>
+                        <div class="table-actions">
+                            <button class="btn-export" onclick="exportarDados('impacto')">
+                                <i class="fas fa-download"></i> Exportar CSV
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-body" style="max-height: 400px; overflow-y: auto;">
+                        <table class="data-table" id="tabelaImpactoUF">
+                            <thead>
+                                <tr>
+                                    <th>UF</th>
+                                    <th>Região</th>
+                                    <th>Ganhos (R$ mi)</th>
+                                    <th>Perdas (R$ mi)</th>
+                                    <th>Saldo (R$ mi)</th>
+                                    <th>Mun. Ganhadores</th>
+                                    <th>% Beneficiados</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaImpactoUFBody">
+                                <!-- Preenchido via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Gráficos de Impacto por UF (movidos da Visão Geral) -->
+                <div class="charts-row" style="margin-top: 2rem;">
+                    <div class="chart-card large">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-map-marked-alt"></i> Impacto por UF - IBS/CBS</h3>
+                            <div class="chart-actions">
+                                <button class="btn-chart active" data-view="ganhos">Ganhos</button>
+                                <button class="btn-chart" data-view="perdas">Perdas</button>
+                                <button class="btn-chart" data-view="saldo">Saldo</button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div id="chartMapaBrasilImpacto" style="height: 450px;"></div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-percentage"></i> Proporção Ganhadores vs Perdedores</h3>
+                        </div>
+                        <div class="chart-body">
+                            <div id="chartProporcaoImpacto" style="height: 280px;"></div>
+                        </div>
+                        <div class="chart-footer">
+                            <div class="stat-mini">
+                                <span class="stat-value positive">82%</span>
+                                <span class="stat-label">Ganhadores</span>
+                            </div>
+                            <div class="stat-mini">
+                                <span class="stat-value negative">18%</span>
+                                <span class="stat-label">Perdedores</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nota sobre os dados -->
+                <div class="data-warning" style="margin-top: 1rem;">
+                    <i class="fas fa-info-circle"></i>
+                    <span><strong>Fonte:</strong> Ministério da Fazenda - Nota Técnica sobre Efeito Redistributivo do IBS (2024). Dados base: 2022.</span>
+                </div>
+
+                <!-- Projeções e Cenários do IBS/CBS -->
+                <div class="projecoes-section" style="margin-top: 2rem;">
+                    <h3><i class="fas fa-chart-line"></i> Projeções e Cenários do IBS/CBS</h3>
+                    
+                    <!-- Seletor de Cenário -->
+                    <div class="scenario-selector">
+                        <button class="scenario-btn active" data-scenario="base">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Cenário Base</span>
+                            <small>Conforme LC 214/2025</small>
+                        </button>
+                        <button class="scenario-btn" data-scenario="otimista">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Cenário Otimista</span>
+                            <small>Crescimento acelerado</small>
+                        </button>
+                        <button class="scenario-btn" data-scenario="pessimista">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>Cenário Pessimista</span>
+                            <small>Retração econômica</small>
+                        </button>
+                    </div>
+
+                    <!-- Gráfico de Projeção -->
+                    <div class="chart-card full-width">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-chart-area"></i> Projeção de Receitas IBS/CBS (2024-2033)</h3>
+                        </div>
+                        <div class="chart-body">
+                            <div id="chartProjecao" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SEÇÃO 4: RISCOS FISCAIS -->
+            <!-- ======================================== -->
+            <section class="section" id="section-riscos-fiscais">
+                <div class="section-header">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Matriz de Riscos Fiscais da Transição</h2>
+                    <p>Identificação e monitoramento de riscos na transição do ICMS/ISS para o IBS (2026-2033)</p>
+                </div>
+
+                <!-- Indicadores de Risco -->
+                <div class="risk-indicators">
+                    <div class="risk-indicator critical">
+                        <div class="risk-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="risk-info">
+                            <span class="risk-title">Concentração de Perdas</span>
+                            <span class="risk-value">CRÍTICO</span>
+                            <p>5 UFs concentram 67% das perdas</p>
+                        </div>
+                    </div>
+                    <div class="risk-indicator high">
+                        <div class="risk-icon"><i class="fas fa-building"></i></div>
+                        <div class="risk-info">
+                            <span class="risk-title">Capitais Perdedoras</span>
+                            <span class="risk-value">ALTO</span>
+                            <p>59% das capitais terão perda líquida</p>
+                        </div>
+                    </div>
+                    <div class="risk-indicator medium">
+                        <div class="risk-icon"><i class="fas fa-users"></i></div>
+                        <div class="risk-info">
+                            <span class="risk-title">Municípios Grandes</span>
+                            <span class="risk-value">MÉDIO</span>
+                            <p>Municípios > 80k hab: 72% beneficiados</p>
+                        </div>
+                    </div>
+                    <div class="risk-indicator low">
+                        <div class="risk-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="risk-info">
+                            <span class="risk-title">Pequenos Municípios</span>
+                            <span class="risk-value">BAIXO</span>
+                            <p>PIBpc < R$ 25k: 98% ganham</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Matriz de Risco com Legenda -->
+                <div class="chart-card full-width">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-th"></i> Matriz de Risco do IBS por Categoria</h3>
+                    </div>
+                    <div class="chart-body">
+                        <div id="chartMatrizRisco" style="height: 400px;"></div>
+                    </div>
+                    <!-- Legenda da Matriz -->
+                    <div class="matriz-legenda">
+                        <h4><i class="fas fa-info-circle"></i> Legenda da Matriz de Risco</h4>
+                        <div class="legenda-grid">
+                            <div class="legenda-item">
+                                <span class="legenda-cor critico"></span>
+                                <span class="legenda-texto"><strong>Crítico (IRF ≥ 0.75):</strong> +30% municípios perdedores E razão perda/ganho > 2</span>
+                            </div>
+                            <div class="legenda-item">
+                                <span class="legenda-cor alto"></span>
+                                <span class="legenda-texto"><strong>Alto (IRF 0.50-0.74):</strong> 20-30% perdedores OU razão > 1.5</span>
+                            </div>
+                            <div class="legenda-item">
+                                <span class="legenda-cor medio"></span>
+                                <span class="legenda-texto"><strong>Médio (IRF 0.25-0.49):</strong> 10-20% municípios perdedores</span>
+                            </div>
+                            <div class="legenda-item">
+                                <span class="legenda-cor baixo"></span>
+                                <span class="legenda-texto"><strong>Baixo (IRF < 0.25):</strong> Menos de 10% perdedores</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alertas -->
+                <div class="alerts-grid">
+                    <div class="alert-card critical">
+                        <div class="alert-header">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h4>UFs em Situação Crítica</h4>
+                        </div>
+                        <div class="alert-body">
+                            <ul>
+                                <li><strong>SP:</strong> Perda de R$ 29,3 bi (58% do total)</li>
+                                <li><strong>ES:</strong> Perda líquida de R$ 1,3 bi</li>
+                                <li><strong>AM:</strong> Impacto de -R$ 0,86 bi (Zona Franca)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="alert-card warning">
+                        <div class="alert-header">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h4>Pontos de Atenção</h4>
+                        </div>
+                        <div class="alert-body">
+                            <ul>
+                                <li>Fundo de Compensação inicia em 2029</li>
+                                <li>Split Payment requer adaptação de sistemas</li>
+                                <li>Cashback impacta arrecadação de CBS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="alert-card info">
+                        <div class="alert-header">
+                            <i class="fas fa-info-circle"></i>
+                            <h4>Recomendações (FMI)</h4>
+                        </div>
+                        <div class="alert-body">
+                            <ul>
+                                <li><strong>Transparência:</strong> Publicação via Comitê Gestor</li>
+                                <li><strong>Previsibilidade:</strong> Projeções plurianuais</li>
+                                <li><strong>Coordenação:</strong> Estados, municípios e União</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SEÇÃO 5: TRILHA DE APRENDIZAGEM -->
+            <!-- ======================================== -->
+            <section class="section" id="section-trilha-aprendizagem">
+                <!-- Cabeçalho da Seção -->
+                <div class="section-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Trilha de Aprendizagem</h2>
+                    <p>Material de capacitação sobre IBS, CBS e Imposto Seletivo (EC 132/2023 e LC 214/2025)</p>
+                </div>
+
+                <!-- Navegação por Abas -->
+                <div class="govbr-tabs" role="tablist">
+                    <button class="govbr-tab active" data-tab="visao-geral" role="tab" aria-selected="true">
+                        <i class="fas fa-info-circle"></i> Visão Geral
+                    </button>
+                    <button class="govbr-tab" data-tab="trilhas" role="tab" aria-selected="false">
+                        <i class="fas fa-route"></i> Trilhas de Estudo
+                    </button>
+                    <button class="govbr-tab" data-tab="materiais" role="tab" aria-selected="false">
+                        <i class="fas fa-folder-open"></i> Materiais
+                    </button>
+                    <button class="govbr-tab" data-tab="cursos" role="tab" aria-selected="false">
+                        <i class="fas fa-chalkboard-teacher"></i> Cursos
+                    </button>
+                    <button class="govbr-tab" data-tab="gamificado" role="tab" aria-selected="false">
+                        <i class="fas fa-gamepad"></i> Trilha Interativa
+                    </button>
+                </div>
+
+                <!-- Conteúdo das Abas -->
+                <div class="govbr-tab-content">
+                    
+                    <!-- Aba: Visão Geral -->
+                    <div class="govbr-tab-panel active" id="panel-visao-geral" role="tabpanel">
+                        <div class="govbr-intro-section">
+                            <h2>Sobre a Reforma Tributária do Consumo</h2>
+                            <p>A Reforma Tributária do Consumo representa a maior transformação do sistema tributário brasileiro em décadas. Aprovada pela <strong>Emenda Constitucional 132/2023</strong> e regulamentada pela <strong>Lei Complementar 214/2025</strong>, ela simplifica a tributação sobre o consumo, substituindo cinco tributos (PIS, COFINS, IPI, ICMS e ISS) por três novos: <strong>CBS</strong>, <strong>IBS</strong> e <strong>Imposto Seletivo</strong>.</p>
+                        </div>
+
+                        <!-- Cards de Destaque -->
+                        <div class="govbr-highlight-cards">
+                            <div class="govbr-highlight-card blue">
+                                <div class="govbr-highlight-icon"><i class="fas fa-file-signature"></i></div>
+                                <div class="govbr-highlight-content">
+                                    <span class="govbr-highlight-label">Contribuição Federal</span>
+                                    <h3>CBS</h3>
+                                    <p>Contribuição sobre Bens e Serviços - Substitui PIS e COFINS</p>
+                                    <span class="govbr-highlight-value">8,8%</span>
+                                </div>
+                            </div>
+                            <div class="govbr-highlight-card green">
+                                <div class="govbr-highlight-icon"><i class="fas fa-landmark"></i></div>
+                                <div class="govbr-highlight-content">
+                                    <span class="govbr-highlight-label">Imposto Subnacional</span>
+                                    <h3>IBS</h3>
+                                    <p>Imposto sobre Bens e Serviços - Substitui ICMS e ISS</p>
+                                    <span class="govbr-highlight-value">17,7%</span>
+                                </div>
+                            </div>
+                            <div class="govbr-highlight-card yellow">
+                                <div class="govbr-highlight-icon"><i class="fas fa-ban"></i></div>
+                                <div class="govbr-highlight-content">
+                                    <span class="govbr-highlight-label">Imposto Seletivo</span>
+                                    <h3>IS</h3>
+                                    <p>Incidência sobre produtos prejudiciais à saúde ou ambiente</p>
+                                    <span class="govbr-highlight-value">Variável</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Links Oficiais -->
+                        <div class="govbr-links-section">
+                            <h3><i class="fas fa-link"></i> Acesse os portais oficiais</h3>
+                            <div class="govbr-links-grid">
+                                <a href="https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/reforma-consumo" target="_blank" class="govbr-link-card">
+                                    <div class="govbr-link-icon"><i class="fas fa-landmark"></i></div>
+                                    <div class="govbr-link-text">
+                                        <strong>Receita Federal</strong>
+                                        <span>Portal da Reforma do Consumo</span>
+                                    </div>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria" target="_blank" class="govbr-link-card">
+                                    <div class="govbr-link-icon"><i class="fas fa-coins"></i></div>
+                                    <div class="govbr-link-text">
+                                        <strong>Ministério da Fazenda</strong>
+                                        <span>Estudos e Notas Técnicas</span>
+                                    </div>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm" target="_blank" class="govbr-link-card">
+                                    <div class="govbr-link-icon"><i class="fas fa-gavel"></i></div>
+                                    <div class="govbr-link-text">
+                                        <strong>EC 132/2023</strong>
+                                        <span>Texto constitucional</span>
+                                    </div>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/Lcp214.htm" target="_blank" class="govbr-link-card">
+                                    <div class="govbr-link-icon"><i class="fas fa-file-alt"></i></div>
+                                    <div class="govbr-link-text">
+                                        <strong>LC 214/2025</strong>
+                                        <span>Lei Complementar de regulamentação</span>
+                                    </div>
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aba: Trilhas de Estudo -->
+                    <div class="govbr-tab-panel" id="panel-trilhas" role="tabpanel">
+                        <div class="govbr-section-header">
+                            <h2>Trilhas de Conhecimento</h2>
+                            <p>Selecione uma trilha conforme seu perfil de interesse</p>
+                        </div>
+
+                        <div class="govbr-trilhas-grid">
+                            <!-- Trilha Cidadão -->
+                            <div class="govbr-trilha-card">
+                                <div class="govbr-trilha-header cidadao">
+                                    <div class="govbr-trilha-icon"><i class="fas fa-user"></i></div>
+                                    <div class="govbr-trilha-info">
+                                        <h3>Cidadão</h3>
+                                        <span>3 módulos • 45 min</span>
+                                    </div>
+                                </div>
+                                <div class="govbr-trilha-body">
+                                    <p>Entenda como a reforma tributária afeta seu dia a dia: preços, cashback e cesta básica.</p>
+                                    <ul class="govbr-trilha-modulos">
+                                        <li><i class="fas fa-check-circle"></i> O que é o Cashback Tributário</li>
+                                        <li><i class="fas fa-check-circle"></i> Cesta Básica Nacional (alíquota zero)</li>
+                                        <li><i class="fas fa-check-circle"></i> Imposto Seletivo: produtos afetados</li>
+                                    </ul>
+                                </div>
+                                <div class="govbr-trilha-footer">
+                                    <button class="govbr-btn govbr-btn-primary" onclick="LearningPath.setLevel('cidadao'); LearningPath.openModule('cidadao', 'cashback');">
+                                        <i class="fas fa-play"></i> Iniciar Trilha
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Trilha Empresário -->
+                            <div class="govbr-trilha-card">
+                                <div class="govbr-trilha-header empresario">
+                                    <div class="govbr-trilha-icon"><i class="fas fa-briefcase"></i></div>
+                                    <div class="govbr-trilha-info">
+                                        <h3>Empresário</h3>
+                                        <span>3 módulos • 60 min</span>
+                                    </div>
+                                </div>
+                                <div class="govbr-trilha-body">
+                                    <p>Prepare sua empresa para as mudanças: créditos tributários, split payment e adaptações.</p>
+                                    <ul class="govbr-trilha-modulos">
+                                        <li><i class="fas fa-check-circle"></i> Não-cumulatividade plena</li>
+                                        <li><i class="fas fa-check-circle"></i> Crédito financeiro amplo</li>
+                                        <li><i class="fas fa-check-circle"></i> Split Payment: como funciona</li>
+                                    </ul>
+                                </div>
+                                <div class="govbr-trilha-footer">
+                                    <button class="govbr-btn govbr-btn-primary" onclick="LearningPath.setLevel('empresario'); LearningPath.openModule('empresario', 'nao-cumulatividade');">
+                                        <i class="fas fa-play"></i> Iniciar Trilha
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Trilha Gestor Público -->
+                            <div class="govbr-trilha-card">
+                                <div class="govbr-trilha-header gestor">
+                                    <div class="govbr-trilha-icon"><i class="fas fa-university"></i></div>
+                                    <div class="govbr-trilha-info">
+                                        <h3>Gestor Público</h3>
+                                        <span>3 módulos • 75 min</span>
+                                    </div>
+                                </div>
+                                <div class="govbr-trilha-body">
+                                    <p>Gerencie a transição tributária em seu ente: distribuição de receitas e planejamento.</p>
+                                    <ul class="govbr-trilha-modulos">
+                                        <li><i class="fas fa-check-circle"></i> Comitê Gestor do IBS</li>
+                                        <li><i class="fas fa-check-circle"></i> Distribuição de receitas (destino)</li>
+                                        <li><i class="fas fa-check-circle"></i> Gestão da transição 2026-2033</li>
+                                    </ul>
+                                </div>
+                                <div class="govbr-trilha-footer">
+                                    <button class="govbr-btn govbr-btn-primary" onclick="LearningPath.setLevel('gestor'); LearningPath.openModule('gestor', 'comite-gestor');">
+                                        <i class="fas fa-play"></i> Iniciar Trilha
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aba: Materiais -->
+                    <div class="govbr-tab-panel" id="panel-materiais" role="tabpanel">
+                        <div class="govbr-section-header">
+                            <h2>Materiais de Estudo</h2>
+                            <p>Documentos, vídeos e publicações oficiais</p>
+                        </div>
+
+                        <!-- Documentos -->
+                        <div class="govbr-material-section">
+                            <h3><i class="fas fa-file-pdf"></i> Documentos e Estudos</h3>
+                            <div class="govbr-docs-list">
+                                <a href="https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria/estudos" target="_blank" class="govbr-doc-item">
+                                    <div class="govbr-doc-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="govbr-doc-info">
+                                        <strong>Nota Técnica - Alíquota de Referência do IVA Dual</strong>
+                                        <span>Ministério da Fazenda • Estimativa da alíquota neutra de 26,5%</span>
+                                    </div>
+                                    <div class="govbr-doc-action"><i class="fas fa-external-link-alt"></i></div>
+                                </a>
+                                <a href="https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria/estudos" target="_blank" class="govbr-doc-item">
+                                    <div class="govbr-doc-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="govbr-doc-info">
+                                        <strong>Efeito Redistributivo do IBS por UF</strong>
+                                        <span>STN/MF • Análise de ganhadores e perdedores por estado</span>
+                                    </div>
+                                    <div class="govbr-doc-action"><i class="fas fa-external-link-alt"></i></div>
+                                </a>
+                                <a href="https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria/estudos" target="_blank" class="govbr-doc-item">
+                                    <div class="govbr-doc-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="govbr-doc-info">
+                                        <strong>Impacto da Cesta Básica Nacional</strong>
+                                        <span>IPEA • Análise da alíquota zero sobre alimentos essenciais</span>
+                                    </div>
+                                    <div class="govbr-doc-action"><i class="fas fa-external-link-alt"></i></div>
+                                </a>
+                                <a href="https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria/estudos" target="_blank" class="govbr-doc-item">
+                                    <div class="govbr-doc-icon pdf"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="govbr-doc-info">
+                                        <strong>Cashback Tributário - Aspectos Operacionais</strong>
+                                        <span>MDS/MF • Devolução de impostos para famílias do CadÚnico</span>
+                                    </div>
+                                    <div class="govbr-doc-action"><i class="fas fa-external-link-alt"></i></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Vídeos -->
+                        <div class="govbr-material-section">
+                            <h3><i class="fas fa-video"></i> Vídeos Explicativos</h3>
+                            <div class="govbr-videos-grid">
+                                <a href="https://www.youtube.com/results?search_query=reforma+tributária+brasil+2024" target="_blank" class="govbr-video-card">
+                                    <div class="govbr-video-thumb">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>YouTube</span>
+                                    </div>
+                                    <div class="govbr-video-info">
+                                        <strong>Reforma Tributária Explicada</strong>
+                                        <span>Ministério da Fazenda</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.youtube.com/results?search_query=IBS+CBS+reforma+tributária" target="_blank" class="govbr-video-card">
+                                    <div class="govbr-video-thumb">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>YouTube</span>
+                                    </div>
+                                    <div class="govbr-video-info">
+                                        <strong>IBS e CBS: Como Funcionam</strong>
+                                        <span>Receita Federal</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.youtube.com/results?search_query=split+payment+reforma+tributária" target="_blank" class="govbr-video-card">
+                                    <div class="govbr-video-thumb">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>YouTube</span>
+                                    </div>
+                                    <div class="govbr-video-info">
+                                        <strong>Split Payment na Prática</strong>
+                                        <span>Comitê Gestor IBS</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aba: Cursos -->
+                    <div class="govbr-tab-panel" id="panel-cursos" role="tabpanel">
+                        <div class="govbr-section-header">
+                            <h2>Cursos de Capacitação</h2>
+                            <p>Formação continuada em escolas de governo</p>
+                        </div>
+
+                        <div class="govbr-cursos-grid">
+                            <a href="https://www.escolavirtual.gov.br/" target="_blank" class="govbr-curso-card">
+                                <div class="govbr-curso-badge enap">ENAP</div>
+                                <div class="govbr-curso-content">
+                                    <h4>Reforma Tributária para Gestores Públicos</h4>
+                                    <p>Curso completo sobre os impactos da EC 132/2023 na administração pública federal, estadual e municipal.</p>
+                                    <div class="govbr-curso-meta">
+                                        <span><i class="fas fa-clock"></i> 40 horas</span>
+                                        <span><i class="fas fa-certificate"></i> Com certificado</span>
+                                        <span><i class="fas fa-user-graduate"></i> Nível intermediário</span>
+                                    </div>
+                                </div>
+                                <div class="govbr-curso-action">
+                                    <span class="govbr-btn govbr-btn-outline">Acessar curso <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </a>
+
+                            <a href="https://www.escolavirtual.gov.br/" target="_blank" class="govbr-curso-card">
+                                <div class="govbr-curso-badge evg">EVG</div>
+                                <div class="govbr-curso-content">
+                                    <h4>IBS e CBS na Prática</h4>
+                                    <p>Aspectos operacionais dos novos tributos: base de cálculo, alíquotas, creditamento e obrigações acessórias.</p>
+                                    <div class="govbr-curso-meta">
+                                        <span><i class="fas fa-clock"></i> 20 horas</span>
+                                        <span><i class="fas fa-certificate"></i> Com certificado</span>
+                                        <span><i class="fas fa-user-graduate"></i> Nível básico</span>
+                                    </div>
+                                </div>
+                                <div class="govbr-curso-action">
+                                    <span class="govbr-btn govbr-btn-outline">Acessar curso <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </a>
+
+                            <a href="https://www.escolavirtual.gov.br/" target="_blank" class="govbr-curso-card">
+                                <div class="govbr-curso-badge evg">EVG</div>
+                                <div class="govbr-curso-content">
+                                    <h4>Split Payment e Não-Cumulatividade</h4>
+                                    <p>Sistema de recolhimento automático e crédito amplo: adaptação de sistemas e processos empresariais.</p>
+                                    <div class="govbr-curso-meta">
+                                        <span><i class="fas fa-clock"></i> 15 horas</span>
+                                        <span><i class="fas fa-certificate"></i> Com certificado</span>
+                                        <span><i class="fas fa-user-graduate"></i> Nível avançado</span>
+                                    </div>
+                                </div>
+                                <div class="govbr-curso-action">
+                                    <span class="govbr-btn govbr-btn-outline">Acessar curso <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </a>
+
+                            <a href="https://suap.enap.gov.br/" target="_blank" class="govbr-curso-card">
+                                <div class="govbr-curso-badge enap">ENAP</div>
+                                <div class="govbr-curso-content">
+                                    <h4>Comitê Gestor do IBS: Governança</h4>
+                                    <p>Estrutura, competências e funcionamento do órgão responsável pela gestão do IBS entre estados e municípios.</p>
+                                    <div class="govbr-curso-meta">
+                                        <span><i class="fas fa-clock"></i> 10 horas</span>
+                                        <span><i class="fas fa-certificate"></i> Com certificado</span>
+                                        <span><i class="fas fa-user-graduate"></i> Nível intermediário</span>
+                                    </div>
+                                </div>
+                                <div class="govbr-curso-action">
+                                    <span class="govbr-btn govbr-btn-outline">Acessar curso <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Info adicional -->
+                        <div class="govbr-info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <strong>Escolas de Governo</strong>
+                                <p>Os cursos são oferecidos gratuitamente pela <a href="https://www.enap.gov.br/" target="_blank">ENAP</a> (Escola Nacional de Administração Pública) e pela <a href="https://www.escolavirtual.gov.br/" target="_blank">EVG</a> (Escola Virtual do Governo). É necessário cadastro no portal gov.br para acesso.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aba: Trilha Gamificada -->
+                    <div class="govbr-tab-panel" id="panel-gamificado" role="tabpanel">
+                        <div class="govbr-section-header">
+                            <h2>Trilha Gamificada Interativa</h2>
+                            <p>Aprenda de forma divertida com pontos, badges e quizzes sobre a Reforma Tributária</p>
+                        </div>
+
+                        <!-- Container do LearningPath -->
+                        <div id="learningPath" class="learning-path-container"></div>
+                        
+                        <!-- Info adicional -->
+                        <div class="govbr-info-box" style="margin-top: 1.5rem;">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <strong>Sistema de Gamificação</strong>
+                                <p>Complete os módulos para ganhar pontos e desbloquear badges! Seu progresso é salvo automaticamente no navegador. Teste seus conhecimentos com quizzes interativos ao final de cada módulo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SEÇÃO 6: TIMELINE DA TRANSIÇÃO -->
+            <!-- ======================================== -->
+            <section class="section" id="section-timeline-transicao">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-alt"></i> Timeline da Transição Tributária</h2>
+                    <p>Cronograma e perspectivas evolutivas da implementação do IVA Dual brasileiro (2023-2033)</p>
+                </div>
+
+                <!-- Indicador de Progresso -->
+                <div class="timeline-progress-bar">
+                    <div class="progress-info">
+                        <span class="progress-label">Progresso da Transição</span>
+                        <span class="progress-value">20% concluído</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 20%;"></div>
+                        <div class="progress-markers">
+                            <span class="marker completed" style="left: 0%;" title="2023">EC 132</span>
+                            <span class="marker completed" style="left: 10%;" title="2025">LC 214</span>
+                            <span class="marker current" style="left: 20%;" title="2025">Prep.</span>
+                            <span class="marker" style="left: 35%;" title="2026-27">Teste</span>
+                            <span class="marker" style="left: 50%;" title="2028">CBS</span>
+                            <span class="marker" style="left: 75%;" title="2029-32">IBS</span>
+                            <span class="marker" style="left: 100%;" title="2033+">IVA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Compacta em Grid -->
+                <div class="timeline-grid">
+                    <div class="timeline-phase completed">
+                        <div class="phase-header"><span class="phase-year">2023</span><i class="fas fa-check-circle"></i></div>
+                        <h4>EC 132/2023</h4>
+                        <p>Aprovação da Emenda Constitucional em 20/12/2023</p>
+                    </div>
+                    <div class="timeline-phase completed">
+                        <div class="phase-header"><span class="phase-year">Jan/2025</span><i class="fas fa-check-circle"></i></div>
+                        <h4>LC 214/2025</h4>
+                        <p>Regulamentação completa do IBS, CBS e IS</p>
+                    </div>
+                    <div class="timeline-phase current">
+                        <div class="phase-header"><span class="phase-year">2025</span><i class="fas fa-cog fa-spin"></i></div>
+                        <h4>Preparação</h4>
+                        <p>Comitê Gestor, Split Payment, sistemas</p>
+                    </div>
+                    <div class="timeline-phase">
+                        <div class="phase-header"><span class="phase-year">2026-27</span><i class="fas fa-flask"></i></div>
+                        <h4>Teste</h4>
+                        <p>CBS 0,9% + IBS 0,1%</p>
+                    </div>
+                    <div class="timeline-phase">
+                        <div class="phase-header"><span class="phase-year">2028</span><i class="fas fa-exchange-alt"></i></div>
+                        <h4>CBS 8,8%</h4>
+                        <p>Substitui PIS/COFINS</p>
+                    </div>
+                    <div class="timeline-phase">
+                        <div class="phase-header"><span class="phase-year">2029-32</span><i class="fas fa-chart-line"></i></div>
+                        <h4>Transição IBS</h4>
+                        <p>10% ao ano até 40%</p>
+                    </div>
+                    <div class="timeline-phase final">
+                        <div class="phase-header"><span class="phase-year">2033+</span><i class="fas fa-flag-checkered"></i></div>
+                        <h4>IVA Dual</h4>
+                        <p>26,5% (CBS + IBS)</p>
+                    </div>
+                </div>
+
+                <!-- Gráficos de Evolução -->
+                <div class="charts-row" style="margin-top: 2rem;">
+                    <!-- Gráfico: Evolução das Alíquotas -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-percentage"></i> Evolução das Alíquotas (2024-2033)</h3>
+                        </div>
+                        <div class="chart-body">
+                            <div id="chartEvolucaoAliquotas" style="height: 350px;"></div>
+                        </div>
+                    </div>
+                    <!-- Gráfico: Transição ICMS/ISS → IBS -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-sync-alt"></i> Transição ICMS/ISS → IBS</h3>
+                        </div>
+                        <div class="chart-body">
+                            <div id="chartTransicaoIBS" style="height: 350px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cards Informativos -->
+                <div class="info-cards-row" style="margin-top: 2rem;">
+                    <div class="info-summary-card federal">
+                        <div class="info-icon"><i class="fas fa-landmark"></i></div>
+                        <div class="info-data">
+                            <h4>CBS (Federal)</h4>
+                            <p class="info-highlight">8,8%</p>
+                            <ul>
+                                <li>Substitui PIS e COFINS</li>
+                                <li>Início pleno: 2028</li>
+                                <li>Gerido pela RFB</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-summary-card subnacional">
+                        <div class="info-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="info-data">
+                            <h4>IBS (Subnacional)</h4>
+                            <p class="info-highlight">17,7%</p>
+                            <ul>
+                                <li>Substitui ICMS e ISS</li>
+                                <li>Transição: 2029-2033</li>
+                                <li>Comitê Gestor do IBS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-summary-card total">
+                        <div class="info-icon"><i class="fas fa-calculator"></i></div>
+                        <div class="info-data">
+                            <h4>IVA Dual Total</h4>
+                            <p class="info-highlight">26,5%</p>
+                            <ul>
+                                <li>Alíquota neutra estimada</li>
+                                <li>Princípio do destino</li>
+                                <li>Não-cumulatividade plena</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perspectivas Evolutivas -->
+                <div class="perspectivas-section" style="margin-top: 2rem;">
+                    <h3><i class="fas fa-binoculars"></i> Perspectivas Evolutivas</h3>
+                    <div class="perspectivas-grid">
+                        <div class="perspectiva-card">
+                            <div class="perspectiva-icon success"><i class="fas fa-check-double"></i></div>
+                            <h4>Simplificação Tributária</h4>
+                            <p>Redução de 5 tributos para 3, com unificação de bases de cálculo e eliminação de 27 legislações estaduais de ICMS.</p>
+                        </div>
+                        <div class="perspectiva-card">
+                            <div class="perspectiva-icon info"><i class="fas fa-balance-scale"></i></div>
+                            <h4>Fim da Guerra Fiscal</h4>
+                            <p>Tributação no destino elimina benefícios fiscais unilaterais e equaliza a competição entre estados.</p>
+                        </div>
+                        <div class="perspectiva-card">
+                            <div class="perspectiva-icon warning"><i class="fas fa-hand-holding-usd"></i></div>
+                            <h4>Cashback Social</h4>
+                            <p>Devolução de impostos para famílias de baixa renda cadastradas no CadÚnico, reduzindo regressividade.</p>
+                        </div>
+                        <div class="perspectiva-card">
+                            <div class="perspectiva-icon primary"><i class="fas fa-robot"></i></div>
+                            <h4>Split Payment</h4>
+                            <p>Recolhimento automático na liquidação financeira reduz sonegação e custos de compliance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SEÇÃO 7: DADOS ABERTOS -->
+            <!-- ======================================== -->
+            <section class="section" id="section-dados-abertos">
+                <div class="section-header">
+                    <h2><i class="fas fa-database"></i> Dados Abertos</h2>
+                    <p>Acesso transparente aos dados do IBS/CBS utilizados neste observatório</p>
+                </div>
+
+                <!-- Download Options -->
+                <div class="download-options">
+                    <div class="download-card">
+                        <i class="fas fa-file-csv"></i>
+                        <h4>Dados por UF</h4>
+                        <p>Efeito redistributivo IBS completo</p>
+                        <button class="btn-download" onclick="exportarDados('uf')">
+                            <i class="fas fa-download"></i> CSV
+                        </button>
+                    </div>
+                    <div class="download-card">
+                        <i class="fas fa-file-csv"></i>
+                        <h4>Arrecadação por UF</h4>
+                        <p>ICMS e ISS 2024 + Projeções IBS</p>
+                        <button class="btn-download" onclick="exportarDados('arrecadacao')">
+                            <i class="fas fa-download"></i> CSV
+                        </button>
+                    </div>
+                    <div class="download-card">
+                        <i class="fas fa-file-csv"></i>
+                        <h4>Série Histórica</h4>
+                        <p>Dados de 2020 a 2024</p>
+                        <button class="btn-download" onclick="exportarDados('historico')">
+                            <i class="fas fa-download"></i> CSV
+                        </button>
+                    </div>
+                    <div class="download-card">
+                        <i class="fas fa-file-code"></i>
+                        <h4>API REST</h4>
+                        <p>Integração programática</p>
+                        <button class="btn-download" onclick="mostrarAPI()">
+                            <i class="fas fa-code"></i> Documentação
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fontes Oficiais -->
+                <div class="fontes-oficiais">
+                    <h3><i class="fas fa-landmark"></i> Fontes Oficiais de Dados</h3>
+                    <div class="fontes-grid">
+                        <a href="https://www.siop.planejamento.gov.br/" target="_blank" class="fonte-card">
+                            <strong>SIOP</strong>
+                            <span>Sistema Integrado de Planejamento e Orçamento</span>
+                        </a>
+                        <a href="https://www.gov.br/tesouronacional/" target="_blank" class="fonte-card">
+                            <strong>STN</strong>
+                            <span>Secretaria do Tesouro Nacional</span>
+                        </a>
+                        <a href="https://www.gov.br/receitafederal/" target="_blank" class="fonte-card">
+                            <strong>RFB</strong>
+                            <span>Receita Federal do Brasil</span>
+                        </a>
+                        <a href="https://portaldatransparencia.gov.br/" target="_blank" class="fonte-card">
+                            <strong>Portal da Transparência</strong>
+                            <span>CGU</span>
+                        </a>
+                        <a href="https://www.confaz.fazenda.gov.br/" target="_blank" class="fonte-card">
+                            <strong>CONFAZ</strong>
+                            <span>Conselho Nacional de Política Fazendária</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tabela Completa -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3><i class="fas fa-table"></i> Base de Dados Completa</h3>
+                    </div>
+                    <div class="table-body" style="max-height: 500px; overflow-y: auto;">
+                        <table class="data-table" id="tabelaCompleta">
+                            <thead>
+                                <tr>
+                                    <th>UF</th>
+                                    <th>Região</th>
+                                    <th>PIBpc</th>
+                                    <th>Ganhos IBS</th>
+                                    <th>Perdas IBS</th>
+                                    <th>Ganhadores</th>
+                                    <th>Perdedores</th>
+                                    <th>% Ganhadores</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaCompletaBody">
+                                <!-- Preenchido via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================== -->
+            <!-- SEÇÃO 8: ASSISTENTE IA -->
+            <!-- ======================================== -->
+            <section class="section" id="section-assistente-ia">
+                <div class="section-header">
+                    <h2><i class="fas fa-robot"></i> Assistente IA - Reforma Tributária</h2>
+                    <p>Tire suas dúvidas sobre IBS, CBS, IS, Split Payment, Cashback e mais</p>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="chat-info">
+                            <div class="ai-avatar"><i class="fas fa-brain"></i></div>
+                            <h4>Assistente IA</h4>
+                            <p>Especializado em Reforma Tributária</p>
+                        </div>
+                        
+                        <div class="chat-capabilities">
+                            <h5><i class="fas fa-lightbulb"></i> O que posso responder:</h5>
+                            <ul>
+                                <li><i class="fas fa-check"></i> O que é IBS, CBS e IS</li>
+                                <li><i class="fas fa-check"></i> Como funciona o Split Payment</li>
+                                <li><i class="fas fa-check"></i> Cashback tributário</li>
+                                <li><i class="fas fa-check"></i> Timeline de transição</li>
+                                <li><i class="fas fa-check"></i> Impactos por UF</li>
+                                <li><i class="fas fa-check"></i> Comitê Gestor do IBS</li>
+                            </ul>
+                        </div>
+
+                        <div class="chat-suggestions">
+                            <h5><i class="fas fa-comment-dots"></i> Perguntas frequentes:</h5>
+                            <button class="suggestion-btn" onclick="enviarSugestao('O que é o IBS e como funciona?')">
+                                O que é o IBS?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('O que é Split Payment e como vai funcionar?')">
+                                O que é Split Payment?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('Como funciona o Cashback tributário?')">
+                                Como funciona o Cashback?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('Quando começa a transição do ICMS para IBS?')">
+                                Quando começa a transição?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('O que é o Imposto Seletivo e quais produtos são tributados?')">
+                                O que é o Imposto Seletivo?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('O que é o Comitê Gestor do IBS?')">
+                                O que é o Comitê Gestor?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('Qual o impacto da reforma em São Paulo?')">
+                                Impacto em São Paulo?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('Como fica a Cesta Básica na reforma?')">
+                                Cesta Básica Nacional?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('O que é não-cumulatividade plena?')">
+                                Não-cumulatividade plena?
+                            </button>
+                            <button class="suggestion-btn" onclick="enviarSugestao('Como funcionam as alíquotas reduzidas?')">
+                                Alíquotas reduzidas?
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chat-main">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message assistant">
+                                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                                <div class="message-content">
+                                    <div class="message-text">
+                                        <p>Olá! 👋 Sou o assistente do <strong>Observatório da Reforma Tributária</strong>.</p>
+                                        <p>Posso ajudá-lo a entender:</p>
+                                        <ul>
+                                            <li>📊 <strong>IBS</strong> - Imposto sobre Bens e Serviços (substitui ICMS/ISS)</li>
+                                            <li>💰 <strong>CBS</strong> - Contribuição sobre Bens e Serviços (substitui PIS/COFINS)</li>
+                                            <li>🚭 <strong>IS</strong> - Imposto Seletivo ("Imposto do Pecado")</li>
+                                            <li>⚡ <strong>Split Payment</strong> - Recolhimento automático</li>
+                                            <li>💵 <strong>Cashback</strong> - Devolução para famílias</li>
+                                            <li>📅 <strong>Timeline</strong> - Cronograma 2026-2033</li>
+                                        </ul>
+                                        <p>Clique em uma das perguntas sugeridas ou digite sua dúvida!</p>
+                                    </div>
+                                    <span class="message-time">Agora</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-input-container">
+                            <div class="chat-input-wrapper">
+                                <input type="text" 
+                                       id="chatInput" 
+                                       class="chat-input" 
+                                       placeholder="Digite sua pergunta sobre a reforma tributária..."
+                                       onkeypress="if(event.key === 'Enter') enviarMensagem()">
+                                <button class="chat-send-btn" onclick="enviarMensagem()">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <p class="chat-disclaimer">
+                                <i class="fas fa-info-circle"></i>
+                                Respostas baseadas na EC 132/2023 e LC 214/2025. Para análises oficiais, consulte STN e RFB.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Modal de Metodologia -->
+    <div class="modal" id="modalMetodologia" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModalMetodologia()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2><i class="fas fa-book"></i> Metodologia</h2>
+            
+            <div class="metodologia-content">
+                <h3>Base Legal</h3>
+                <ul>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm" target="_blank">EC 132/2023</a> - Reforma Tributária</li>
+                    <li><a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/Lcp214.htm" target="_blank">LC 214/2025</a> - Regulamentação IBS/CBS</li>
+                </ul>
+
+                <h3>Índice de Risco Fiscal (IRF)</h3>
+                <table class="metodologia-table">
+                    <thead>
+                        <tr><th>Nível</th><th>IRF</th><th>Critério</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="critical"><td>Crítico</td><td>≥ 0.75</td><td>+30% perdedores E razão > 2</td></tr>
+                        <tr class="high"><td>Alto</td><td>0.50-0.74</td><td>20-30% perdedores OU razão > 1.5</td></tr>
+                        <tr class="medium"><td>Médio</td><td>0.25-0.49</td><td>10-20% perdedores</td></tr>
+                        <tr class="low"><td>Baixo</td><td>< 0.25</td><td>Menos de 10% perdedores</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Alíquotas de Referência (MF)</h3>
+                <ul>
+                    <li><strong>CBS:</strong> 8,8% (federal)</li>
+                    <li><strong>IBS:</strong> 17,7% (subnacional)</li>
+                    <li><strong>Total IVA Dual:</strong> 26,5%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal da API -->
+    <div class="modal" id="modalAPI" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModalAPI()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2><i class="fas fa-code"></i> Documentação da API</h2>
+            
+            <div class="api-content">
+                <h3>Endpoints Disponíveis</h3>
+                <div class="api-endpoint">
+                    <code>GET /tables/dados_uf</code>
+                    <p>Dados de impacto redistributivo por UF</p>
+                </div>
+                <div class="api-endpoint">
+                    <code>GET /tables/arrecadacao</code>
+                    <p>Dados de arrecadação ICMS/ISS e projeções IBS</p>
+                </div>
+                <div class="api-endpoint">
+                    <code>GET /tables/serie_historica</code>
+                    <p>Série histórica de arrecadação</p>
+                </div>
+
+                <h3>Exemplo de Uso</h3>
+                <pre><code>fetch('tables/dados_uf?page=1&limit=27')
+  .then(response => response.json())
+  .then(data => console.log(data));</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-sof">
+                <div class="sof-brand">
+                    <div class="sof-icon"><i class="fas fa-landmark"></i></div>
+                    <div class="sof-text">
+                        <span class="sof-ministry">Ministério do Planejamento e Orçamento</span>
+                        <span class="sof-name">Secretaria de Orçamento Federal - SOF</span>
+                    </div>
+                </div>
+                <div class="sof-prize">
+                    <span class="prize-badge">14º Prêmio SOF de Monografias</span>
+                    <span class="prize-category">Categoria: Soluções em Dados Orçamentários</span>
+                </div>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Observatório da Reforma Tributária</h4>
+                    <p>Plataforma de transparência fiscal para monitoramento dos impactos do IBS, CBS e IS (EC 132/2023).</p>
+                    <div class="footer-badges">
+                        <span class="badge"><i class="fas fa-shield-alt"></i> Dados Abertos</span>
+                        <span class="badge"><i class="fas fa-robot"></i> IA Integrada</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5>Referências</h5>
+                    <ul>
+                        <li><a href="https://www.gov.br/fazenda/pt-br/acesso-a-informacao/acoes-e-programas/reforma-tributaria" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> MF - Reforma Tributária
+                        </a></li>
+                        <li><a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc132.htm" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> EC 132/2023
+                        </a></li>
+                        <li><a href="https://www.gov.br/tesouronacional/" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Tesouro Nacional
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Documentação</h5>
+                    <ul>
+                        <li><a href="#" onclick="abrirModalMetodologia(); return false;"><i class="fas fa-book"></i> Metodologia</a></li>
+                        <li><a href="#section-dados-abertos"><i class="fas fa-database"></i> Dados Abertos</a></li>
+                        <li><a href="#" onclick="mostrarAPI(); return false;"><i class="fas fa-code"></i> API REST</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Capacitação</h5>
+                    <ul>
+                        <li><a href="#section-trilha-aprendizagem"><i class="fas fa-graduation-cap"></i> Trilha de Aprendizagem</a></li>
+                        <li><a href="https://www.escolavirtual.gov.br/" target="_blank"><i class="fas fa-external-link-alt"></i> EVG</a></li>
+                        <li><a href="https://suap.enap.gov.br/" target="_blank"><i class="fas fa-external-link-alt"></i> ENAP</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2025 Observatório da Reforma Tributária Brasileira</p>
+                    <p class="footer-disclaimer">Solução desenvolvida para o 14º Prêmio SOF de Monografias | Dados oficiais de fontes governamentais</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante - Painel do Orçamento Federal -->
+    <a href="https://www1.siop.planejamento.gov.br/qlikview/index.htm" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="fab-siop" 
+       title="Acessar Painel do Orçamento Federal (SIOP)"
+       aria-label="Acessar Painel do Orçamento Federal">
+        <div class="fab-icon">
+            <i class="fas fa-chart-bar"></i>
+        </div>
+        <span class="fab-label">Painel SIOP</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/GovernmentDataService.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/TaxReformDashboard.js"></script>
+    <script src="js/LearningPath.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar Dashboard da Reforma
+            if (typeof TaxReformDashboard !== 'undefined') {
+                TaxReformDashboard.init();
+            }
+            
+            // Inicializar Trilha de Aprendizagem
+            if (typeof LearningPath !== 'undefined') {
+                LearningPath.init('learningPath');
+            }
+            
+            // Inicializar gráficos adicionais
+            inicializarGraficosArrecadacao();
+            
+            console.log('🚀 Observatório da Reforma Tributária inicializado');
+        });
+
+        // Funções para modais
+        function abrirModalMetodologia() {
+            const modal = document.getElementById('modalMetodologia');
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharModalMetodologia() {
+            const modal = document.getElementById('modalMetodologia');
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function mostrarAPI() {
+            const modal = document.getElementById('modalAPI');
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharModalAPI() {
+            const modal = document.getElementById('modalAPI');
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // Fechar modais clicando no overlay
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('open');
+                    this.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Fechar modais com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                fecharModalMetodologia();
+                fecharModalAPI();
+            }
+        });
+
+        // Gráficos de Arrecadação
+        function inicializarGraficosArrecadacao() {
+            // Gráfico de Arrecadação por UF
+            const chartArrecadacaoUF = document.getElementById('chartArrecadacaoUF');
+            if (chartArrecadacaoUF) {
+                const chart = echarts.init(chartArrecadacaoUF);
+                const option = {
+                    tooltip: { trigger: 'axis' },
+                    legend: { data: ['ICMS 2024', 'IBS Projetado 2033'], bottom: 0 },
+                    grid: { left: '3%', right: '4%', bottom: '15%', containLabel: true },
+                    xAxis: { 
+                        type: 'category', 
+                        data: ['SP', 'MG', 'RJ', 'RS', 'PR', 'BA', 'SC', 'GO', 'PE', 'CE'],
+                        axisLabel: { fontSize: 11 }
+                    },
+                    yAxis: { type: 'value', name: 'R$ bilhões' },
+                    series: [
+                        { name: 'ICMS 2024', type: 'bar', data: [198, 78, 59, 46, 49, 43, 32, 28, 26, 23], itemStyle: { color: '#1a365d' } },
+                        { name: 'IBS Projetado 2033', type: 'bar', data: [180, 85, 55, 52, 55, 50, 38, 35, 32, 28], itemStyle: { color: '#48bb78' } }
+                    ]
+                };
+                chart.setOption(option);
+                window.addEventListener('resize', () => chart.resize());
+            }
+
+            // Gráfico de Evolução da Arrecadação
+            const chartEvolucao = document.getElementById('chartEvolucaoArrecadacao');
+            if (chartEvolucao) {
+                const chart = echarts.init(chartEvolucao);
+                const option = {
+                    tooltip: { trigger: 'axis' },
+                    legend: { data: ['ICMS/ISS', 'IBS', 'Total'], bottom: 0 },
+                    grid: { left: '3%', right: '4%', bottom: '15%', containLabel: true },
+                    xAxis: { 
+                        type: 'category', 
+                        data: ['2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033']
+                    },
+                    yAxis: { type: 'value', name: 'R$ bilhões' },
+                    series: [
+                        { name: 'ICMS/ISS', type: 'line', data: [900, 920, 920, 920, 920, 828, 736, 644, 552, 0], itemStyle: { color: '#c53030' }, areaStyle: { opacity: 0.3 } },
+                        { name: 'IBS', type: 'line', data: [0, 0, 10, 10, 10, 100, 200, 300, 400, 1000], itemStyle: { color: '#48bb78' }, areaStyle: { opacity: 0.3 } },
+                        { name: 'Total', type: 'line', data: [900, 920, 930, 930, 930, 928, 936, 944, 952, 1000], itemStyle: { color: '#1a365d' }, lineStyle: { width: 3 } }
+                    ]
+                };
+                chart.setOption(option);
+                window.addEventListener('resize', () => chart.resize());
+            }
+        }
+
+        // Atualizar visualização de arrecadação
+        function atualizarVisualizacaoArrecadacao() {
+            const visualizacao = document.getElementById('filterVisualizacao')?.value;
+            const containerMunicipio = document.getElementById('filterMunicipioContainer');
+            
+            if (containerMunicipio) {
+                if (visualizacao === 'municipios') {
+                    containerMunicipio.style.display = 'block';
+                } else {
+                    containerMunicipio.style.display = 'none';
+                }
+            }
+        }
+
+        // Carregar vídeo do YouTube sob demanda
+        function carregarVideo(element, videoId) {
+            const wrapper = element.closest('.video-wrapper');
+            if (!wrapper) return;
+            
+            // Criar iframe do YouTube
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            iframe.title = 'Vídeo sobre Reforma Tributária';
+            iframe.frameBorder = '0';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            
+            // Substituir placeholder pelo iframe
+            wrapper.innerHTML = '';
+            wrapper.appendChild(iframe);
+        }
+
+        // Sistema de Abas - Trilha de Aprendizagem (gov.br style)
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.govbr-tab');
+            const panels = document.querySelectorAll('.govbr-tab-panel');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetPanel = this.dataset.tab;
+                    
+                    // Remover active de todas as tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    
+                    // Remover active de todos os panels
+                    panels.forEach(p => p.classList.remove('active'));
+                    
+                    // Ativar tab e panel selecionados
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+                    
+                    const panel = document.getElementById('panel-' + targetPanel);
+                    if (panel) {
+                        panel.classList.add('active');
+                    }
+                });
+            });
+            
+            // Navegação para seções a partir da Visão Geral
+            document.querySelectorAll('.secao-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.dataset.section;
+                    if (section) {
+                        // Simular clique no nav-link correspondente
+                        const navLink = document.querySelector(`.nav-link[data-section="${section}"]`);
+                        if (navLink) {
+                            navLink.click();
+                        }
+                    }
+                });
+            });
+            
+            // Inicializar gráficos da seção Impacto na Arrecadação (novos IDs)
+            inicializarGraficosImpacto();
+        });
+        
+        // Gráficos da seção Impacto na Arrecadação (função global)
+        window.inicializarGraficosImpacto = function() {
+            console.log('📊 Inicializando gráficos de Impacto na Arrecadação...');
+            
+            // Dados das UFs (em R$ milhões)
+            const dadosUF = [
+                { uf: 'SP', ganhos: 12500, perdas: 29300 },
+                { uf: 'MG', ganhos: 5800, perdas: 2100 },
+                { uf: 'RJ', ganhos: 3200, perdas: 8500 },
+                { uf: 'BA', ganhos: 4200, perdas: 1800 },
+                { uf: 'RS', ganhos: 3100, perdas: 1900 },
+                { uf: 'PR', ganhos: 2900, perdas: 1700 },
+                { uf: 'PE', ganhos: 2100, perdas: 980 },
+                { uf: 'CE', ganhos: 1950, perdas: 620 },
+                { uf: 'SC', ganhos: 1800, perdas: 1200 },
+                { uf: 'GO', ganhos: 1650, perdas: 890 }
+            ];
+            
+            // ========== GRÁFICO 1: Impacto por UF - IBS/CBS ==========
+            const chartMapaEl = document.getElementById('chartMapaBrasilImpacto');
+            if (chartMapaEl && typeof echarts !== 'undefined') {
+                // Dispose se já existe
+                let existingChart = echarts.getInstanceByDom(chartMapaEl);
+                if (existingChart) {
+                    existingChart.dispose();
+                }
+                
+                const chartMapa = echarts.init(chartMapaEl);
+                const optionMapa = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { type: 'shadow' },
+                        formatter: function(params) {
+                            let html = '<strong>' + params[0].axisValue + '</strong><br/>';
+                            params.forEach(function(p) {
+                                const cor = p.color;
+                                html += '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + cor + ';margin-right:5px;"></span>';
+                                html += p.seriesName + ': R$ ' + (p.value / 1000).toFixed(1) + ' bi<br/>';
+                            });
+                            return html;
+                        }
+                    },
+                    legend: { 
+                        data: ['Ganhos', 'Perdas'], 
+                        bottom: 0,
+                        textStyle: { fontSize: 12 }
+                    },
+                    grid: { 
+                        left: '3%', 
+                        right: '4%', 
+                        bottom: '15%', 
+                        top: '10%', 
+                        containLabel: true 
+                    },
+                    xAxis: { 
+                        type: 'category', 
+                        data: dadosUF.map(function(d) { return d.uf; }),
+                        axisLabel: { 
+                            fontSize: 12, 
+                            fontWeight: 'bold',
+                            color: '#333'
+                        },
+                        axisLine: { lineStyle: { color: '#ccc' } }
+                    },
+                    yAxis: { 
+                        type: 'value',
+                        name: 'R$ milhões',
+                        nameTextStyle: { fontSize: 11, color: '#666' },
+                        axisLabel: {
+                            fontSize: 11,
+                            formatter: function(val) {
+                                if (val >= 1000) {
+                                    return (val / 1000).toFixed(0) + ' bi';
+                                }
+                                return val + ' mi';
+                            }
+                        },
+                        splitLine: { lineStyle: { type: 'dashed', color: '#e0e0e0' } }
+                    },
+                    series: [
+                        { 
+                            name: 'Ganhos', 
+                            type: 'bar', 
+                            data: dadosUF.map(function(d) { return d.ganhos; }),
+                            itemStyle: { 
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: '#68d391' },
+                                    { offset: 1, color: '#48bb78' }
+                                ])
+                            },
+                            barWidth: '35%'
+                        },
+                        { 
+                            name: 'Perdas', 
+                            type: 'bar', 
+                            data: dadosUF.map(function(d) { return d.perdas; }),
+                            itemStyle: { 
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: '#fc8181' },
+                                    { offset: 1, color: '#f56565' }
+                                ])
+                            },
+                            barWidth: '35%'
+                        }
+                    ]
+                };
+                chartMapa.setOption(optionMapa);
+                window.addEventListener('resize', function() { chartMapa.resize(); });
+                console.log('✅ Gráfico Impacto por UF inicializado');
+            }
+            
+            // ========== GRÁFICO 2: Proporção Ganhadores vs Perdedores ==========
+            const chartPropEl = document.getElementById('chartProporcaoImpacto');
+            if (chartPropEl && typeof echarts !== 'undefined') {
+                // Dispose se já existe
+                let existingChart2 = echarts.getInstanceByDom(chartPropEl);
+                if (existingChart2) {
+                    existingChart2.dispose();
+                }
+                
+                const chartProp = echarts.init(chartPropEl);
+                const optionProp = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: function(params) {
+                            return '<strong>' + params.name + '</strong><br/>' +
+                                   params.value.toLocaleString('pt-BR') + ' municípios (' + params.percent.toFixed(1) + '%)';
+                        }
+                    },
+                    legend: {
+                        orient: 'horizontal',
+                        bottom: 0,
+                        data: ['Ganhadores', 'Perdedores'],
+                        textStyle: { fontSize: 12 }
+                    },
+                    series: [{
+                        name: 'Municípios',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        center: ['50%', '45%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 8,
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            formatter: '{d}%',
+                            fontSize: 16,
+                            fontWeight: 'bold',
+                            color: '#fff'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: 18,
+                                fontWeight: 'bold'
+                            },
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        },
+                        labelLine: { show: false },
+                        data: [
+                            { 
+                                value: 4539, 
+                                name: 'Ganhadores', 
+                                itemStyle: { 
+                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                        { offset: 0, color: '#68d391' },
+                                        { offset: 1, color: '#38a169' }
+                                    ])
+                                }
+                            },
+                            { 
+                                value: 1030, 
+                                name: 'Perdedores', 
+                                itemStyle: { 
+                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                        { offset: 0, color: '#fc8181' },
+                                        { offset: 1, color: '#e53e3e' }
+                                    ])
+                                }
+                            }
+                        ]
+                    }]
+                };
+                chartProp.setOption(optionProp);
+                window.addEventListener('resize', function() { chartProp.resize(); });
+                console.log('✅ Gráfico Proporção inicializado');
+            }
+        };
+        
+        // Gráficos da seção Timeline da Transição
+        window.inicializarGraficosTimeline = function() {
+            console.log('📊 Inicializando gráficos da Timeline...');
+            
+            // ========== GRÁFICO 1: Evolução das Alíquotas ==========
+            const chartAliquotasEl = document.getElementById('chartEvolucaoAliquotas');
+            if (chartAliquotasEl && typeof echarts !== 'undefined') {
+                let existingChart = echarts.getInstanceByDom(chartAliquotasEl);
+                if (existingChart) existingChart.dispose();
+                
+                const chartAliquotas = echarts.init(chartAliquotasEl);
+                const anos = ['2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033'];
+                const optionAliquotas = {
+                    tooltip: {
+                        trigger: 'axis',
+                        formatter: function(params) {
+                            let html = '<strong>' + params[0].axisValue + '</strong><br/>';
+                            params.forEach(function(p) {
+                                html += '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + p.color + ';margin-right:5px;"></span>';
+                                html += p.seriesName + ': ' + p.value + '%<br/>';
+                            });
+                            return html;
+                        }
+                    },
+                    legend: { data: ['CBS', 'IBS', 'Total IVA'], bottom: 0 },
+                    grid: { left: '3%', right: '4%', bottom: '15%', top: '10%', containLabel: true },
+                    xAxis: { type: 'category', data: anos, boundaryGap: false },
+                    yAxis: { type: 'value', name: 'Alíquota (%)', max: 30 },
+                    series: [
+                        {
+                            name: 'CBS',
+                            type: 'line',
+                            data: [0, 0, 0.9, 0.9, 8.8, 8.8, 8.8, 8.8, 8.8, 8.8],
+                            itemStyle: { color: '#2b6cb0' },
+                            areaStyle: { opacity: 0.1 },
+                            smooth: true
+                        },
+                        {
+                            name: 'IBS',
+                            type: 'line',
+                            data: [0, 0, 0.1, 0.1, 0.1, 1.77, 3.54, 5.31, 7.08, 17.7],
+                            itemStyle: { color: '#38a169' },
+                            areaStyle: { opacity: 0.1 },
+                            smooth: true
+                        },
+                        {
+                            name: 'Total IVA',
+                            type: 'line',
+                            data: [0, 0, 1.0, 1.0, 8.9, 10.57, 12.34, 14.11, 15.88, 26.5],
+                            itemStyle: { color: '#1a365d' },
+                            lineStyle: { width: 3 },
+                            smooth: true
+                        }
+                    ]
+                };
+                chartAliquotas.setOption(optionAliquotas);
+                window.addEventListener('resize', function() { chartAliquotas.resize(); });
+                console.log('✅ Gráfico Evolução Alíquotas inicializado');
+            }
+            
+            // ========== GRÁFICO 2: Transição ICMS/ISS → IBS ==========
+            const chartTransicaoEl = document.getElementById('chartTransicaoIBS');
+            if (chartTransicaoEl && typeof echarts !== 'undefined') {
+                let existingChart = echarts.getInstanceByDom(chartTransicaoEl);
+                if (existingChart) existingChart.dispose();
+                
+                const chartTransicao = echarts.init(chartTransicaoEl);
+                const optionTransicao = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { type: 'shadow' },
+                        formatter: function(params) {
+                            let html = '<strong>' + params[0].axisValue + '</strong><br/>';
+                            params.forEach(function(p) {
+                                html += '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + p.color + ';margin-right:5px;"></span>';
+                                html += p.seriesName + ': ' + p.value + '%<br/>';
+                            });
+                            return html;
+                        }
+                    },
+                    legend: { data: ['ICMS/ISS', 'IBS'], bottom: 0 },
+                    grid: { left: '3%', right: '4%', bottom: '15%', top: '10%', containLabel: true },
+                    xAxis: { type: 'category', data: ['2028', '2029', '2030', '2031', '2032', '2033'] },
+                    yAxis: { type: 'value', name: '% da Receita', max: 100 },
+                    series: [
+                        {
+                            name: 'ICMS/ISS',
+                            type: 'bar',
+                            stack: 'total',
+                            data: [100, 90, 80, 70, 60, 0],
+                            itemStyle: { 
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: '#fc8181' },
+                                    { offset: 1, color: '#c53030' }
+                                ])
+                            }
+                        },
+                        {
+                            name: 'IBS',
+                            type: 'bar',
+                            stack: 'total',
+                            data: [0, 10, 20, 30, 40, 100],
+                            itemStyle: { 
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: '#68d391' },
+                                    { offset: 1, color: '#276749' }
+                                ])
+                            }
+                        }
+                    ]
+                };
+                chartTransicao.setOption(optionTransicao);
+                window.addEventListener('resize', function() { chartTransicao.resize(); });
+                console.log('✅ Gráfico Transição IBS inicializado');
+            }
+        };
+        
+        // Chamar inicialização da Timeline quando necessário
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar gráficos da Timeline
+            setTimeout(inicializarGraficosTimeline, 500);
+        });
+    </script>
+</body>
+</html>
