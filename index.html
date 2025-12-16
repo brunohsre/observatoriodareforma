@@ -40,7 +40,7 @@
                     <a href="#" onclick="abrirModalMetodologia(); return false;">
                         <i class="fas fa-book"></i> Metodologia
                     </a>
-                    <a href="#section-dados-abertos">
+                    <a href="#" onclick="abrirModalDadosAbertos(); return false;">
                         <i class="fas fa-database"></i> Dados Abertos
                     </a>
                     <a href="#" onclick="mostrarAPI(); return false;">
@@ -1243,104 +1243,7 @@
                 </div>
             </section>
 
-            <!-- ======================================== -->
-            <!-- SEÇÃO 7: DADOS ABERTOS -->
-            <!-- ======================================== -->
-            <section class="section" id="section-dados-abertos">
-                <div class="section-header">
-                    <h2><i class="fas fa-database"></i> Dados Abertos</h2>
-                    <p>Acesso transparente aos dados do IBS/CBS utilizados neste observatório</p>
-                </div>
-
-                <!-- Download Options -->
-                <div class="download-options">
-                    <div class="download-card">
-                        <i class="fas fa-file-csv"></i>
-                        <h4>Dados por UF</h4>
-                        <p>Efeito redistributivo IBS completo</p>
-                        <button class="btn-download" onclick="exportarDados('uf')">
-                            <i class="fas fa-download"></i> CSV
-                        </button>
-                    </div>
-                    <div class="download-card">
-                        <i class="fas fa-file-csv"></i>
-                        <h4>Arrecadação por UF</h4>
-                        <p>ICMS e ISS 2024 + Projeções IBS</p>
-                        <button class="btn-download" onclick="exportarDados('arrecadacao')">
-                            <i class="fas fa-download"></i> CSV
-                        </button>
-                    </div>
-                    <div class="download-card">
-                        <i class="fas fa-file-csv"></i>
-                        <h4>Série Histórica</h4>
-                        <p>Dados de 2020 a 2024</p>
-                        <button class="btn-download" onclick="exportarDados('historico')">
-                            <i class="fas fa-download"></i> CSV
-                        </button>
-                    </div>
-                    <div class="download-card">
-                        <i class="fas fa-file-code"></i>
-                        <h4>API REST</h4>
-                        <p>Integração programática</p>
-                        <button class="btn-download" onclick="mostrarAPI()">
-                            <i class="fas fa-code"></i> Documentação
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Fontes Oficiais -->
-                <div class="fontes-oficiais">
-                    <h3><i class="fas fa-landmark"></i> Fontes Oficiais de Dados</h3>
-                    <div class="fontes-grid">
-                        <a href="https://www.siop.planejamento.gov.br/" target="_blank" class="fonte-card">
-                            <strong>SIOP</strong>
-                            <span>Sistema Integrado de Planejamento e Orçamento</span>
-                        </a>
-                        <a href="https://www.gov.br/tesouronacional/" target="_blank" class="fonte-card">
-                            <strong>STN</strong>
-                            <span>Secretaria do Tesouro Nacional</span>
-                        </a>
-                        <a href="https://www.gov.br/receitafederal/" target="_blank" class="fonte-card">
-                            <strong>RFB</strong>
-                            <span>Receita Federal do Brasil</span>
-                        </a>
-                        <a href="https://portaldatransparencia.gov.br/" target="_blank" class="fonte-card">
-                            <strong>Portal da Transparência</strong>
-                            <span>CGU</span>
-                        </a>
-                        <a href="https://www.confaz.fazenda.gov.br/" target="_blank" class="fonte-card">
-                            <strong>CONFAZ</strong>
-                            <span>Conselho Nacional de Política Fazendária</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tabela Completa -->
-                <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-table"></i> Base de Dados Completa</h3>
-                    </div>
-                    <div class="table-body" style="max-height: 500px; overflow-y: auto;">
-                        <table class="data-table" id="tabelaCompleta">
-                            <thead>
-                                <tr>
-                                    <th>UF</th>
-                                    <th>Região</th>
-                                    <th>PIBpc</th>
-                                    <th>Ganhos IBS</th>
-                                    <th>Perdas IBS</th>
-                                    <th>Ganhadores</th>
-                                    <th>Perdedores</th>
-                                    <th>% Ganhadores</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabelaCompletaBody">
-                                <!-- Preenchido via JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
+            
 
             <!-- ======================================== -->
             <!-- SEÇÃO 8: ASSISTENTE IA -->
@@ -1481,6 +1384,104 @@
         </div>
     </div>
 
+    <!-- Modal de Dados Abertos-->
+    <div class="modal" id="modalDadosAbertos" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content wide-modal">
+            <button class="modal-close" onclick="fecharModalDadosAbertos()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header-fixed">
+                <h2><i class="fas fa-database"></i> Dados Abertos</h2>
+                <p>Acesso transparente aos dados do IBS/CBS utilizados neste observatório</p>
+            </div>
+
+            <div class="modal-scroll-content">
+                <div class="download-options" style="margin-top: 20px;">
+                    <div class="download-card">
+                        <i class="fas fa-file-csv"></i>
+                        <h4>Dados por UF</h4>
+                        <p>Efeito redistributivo IBS</p>
+                        <button class="btn-download" onclick="exportarDados('uf')">
+                            <i class="fas fa-download"></i> CSV
+                        </button>
+                    </div>
+                    <div class="download-card">
+                        <i class="fas fa-file-csv"></i>
+                        <h4>Arrecadação</h4>
+                        <p>ICMS/ISS e Projeções</p>
+                        <button class="btn-download" onclick="exportarDados('arrecadacao')">
+                            <i class="fas fa-download"></i> CSV
+                        </button>
+                    </div>
+                    <div class="download-card">
+                        <i class="fas fa-file-csv"></i>
+                        <h4>Série Histórica</h4>
+                        <p>Dados 2020-2024</p>
+                        <button class="btn-download" onclick="exportarDados('historico')">
+                            <i class="fas fa-download"></i> CSV
+                        </button>
+                    </div>
+                    <div class="download-card">
+                        <i class="fas fa-file-code"></i>
+                        <h4>API REST</h4>
+                        <p>Integração direta</p>
+                        <button class="btn-download" onclick="fecharModalDadosAbertos(); mostrarAPI();">
+                            <i class="fas fa-code"></i> Docs
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fontes-oficiais" style="margin: 30px 0;">
+                    <h3 style="font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">
+                        <i class="fas fa-landmark"></i> Fontes Oficiais de Dados
+                    </h3>
+                    <div class="fontes-grid">
+                        <a href="https://www.siop.planejamento.gov.br/" target="_blank" class="fonte-card">
+                            <strong>SIOP</strong><span>Planejamento</span>
+                        </a>
+                        <a href="https://www.gov.br/tesouronacional/" target="_blank" class="fonte-card">
+                            <strong>STN</strong><span>Tesouro</span>
+                        </a>
+                        <a href="https://www.gov.br/receitafederal/" target="_blank" class="fonte-card">
+                            <strong>RFB</strong><span>Receita</span>
+                        </a>
+                        <a href="https://portaldatransparencia.gov.br/" target="_blank" class="fonte-card">
+                            <strong>CGU</strong><span>Transparência</span>
+                        </a>
+                        <a href="https://www.confaz.fazenda.gov.br/" target="_blank" class="fonte-card">
+                            <strong>CONFAZ</strong><span>Fazenda</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3><i class="fas fa-table"></i> Base de Dados Completa</h3>
+                    </div>
+                    <div class="table-body" style="max-height: 350px; overflow-y: auto;">
+                        <table class="data-table" id="tabelaCompleta">
+                            <thead>
+                                <tr>
+                                    <th>UF</th>
+                                    <th>Região</th>
+                                    <th>PIBpc</th>
+                                    <th>Ganhos IBS</th>
+                                    <th>Perdas IBS</th>
+                                    <th>Ganhadores</th>
+                                    <th>Perdedores</th>
+                                    <th>% Ganhadores</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaCompletaBody">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal da API -->
     <div class="modal" id="modalAPI" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-content">
@@ -1588,7 +1589,7 @@
         <div class="fab-icon">
             <i class="fas fa-chart-bar"></i>
         </div>
-        <span class="fab-label">Painel SIOP</span>
+        <span class="fab-label">Painel do Orçamento Federal</span>
     </a>
 
     <!-- Scripts -->
