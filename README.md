@@ -10,10 +10,10 @@ Plataforma digital de transparência fiscal para monitoramento dos impactos da r
 
 | Recurso | URL |
 |---------|-----|
-| **Dashboard Principal** | https://hvztvkww.gensparkspace.com/ |
-| **Apresentação (PDF)** | https://hvztvkww.gensparkspace.com/apresentacao.html |
-| **Instruções de Acesso** | https://hvztvkww.gensparkspace.com/INSTRUCOES_ACESSO.html |
-| **Proposta Completa** | https://hvztvkww.gensparkspace.com/PROPOSTA_PREMIO_SOF.md |
+| **GitHub Pages (Produção)** | https://brunohsre.github.io/observatoriodareforma/ |
+| **Instruções de Acesso (PDF)** | `INSTRUCOES_ACESSO_OBSERVATORIO.html` |
+| **Apresentação (PDF)** | `apresentacao.html` |
+| **Proposta Completa** | `PROPOSTA_PREMIO_SOF.md` |
 
 ## 📍 Navegação e Seções
 
@@ -202,7 +202,34 @@ observatorio/
 | 2029-2032 | Transição gradual IBS (10%/ano) |
 | 2033+ | IVA Dual em plena vigência |
 
-## 🔄 Última Atualização (15/12/2025)
+## 🔄 Última Atualização (16/12/2025)
+
+### Alterações de Layout
+
+- ✅ **Menu de navegação simplificado**: Removidos "Dados Abertos" e mantido apenas no modal/header
+- ✅ **7 Seções na navegação**: Visão Geral, Reforma em Números, Impacto na Arrecadação, Riscos Fiscais, Trilha de Aprendizagem, Timeline da Transição, Assistente IA
+- ✅ **Assistente IA redesenhado (estilo ChatGPT)**:
+  - Layout centralizado sem barra de rolagem
+  - Ícone de robô verde (#10a37f) no topo
+  - 6 cards de sugestões em grid 3x2
+  - Campo de input arredondado estilo ChatGPT
+  - Botão de envio verde integrado ao input
+  - Disclaimer discreto no rodapé
+  - Histórico de mensagens aparece após primeira interação
+  - Indicador de digitação animado
+
+### Reconstrução do Site
+
+- ✅ **index.html reconstruído**: Layout completo reimplementado conforme especificações
+- ✅ **Navegação testada**: Todos os botões e links funcionando corretamente
+- ✅ **Gráficos inicializados**: ECharts carregando corretamente em todas as seções
+- ✅ **Assistente IA funcional**: Chat com respostas sobre IBS, CBS, Split Payment, Cashback, etc.
+- ✅ **Modais funcionais**: Metodologia, Dados Abertos e API com abertura/fechamento correto
+- ✅ **Trilha de Aprendizagem**: 5 abas navegáveis (Visão Geral, Trilhas, Materiais, Cursos, Gamificada)
+
+---
+
+## 📅 Histórico de Atualizações (15/12/2025)
 
 ### Correções Implementadas
 

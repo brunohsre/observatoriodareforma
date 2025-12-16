@@ -95,9 +95,6 @@
                     <li><a href="#" class="nav-link" data-section="timeline-transicao">
                         <i class="fas fa-calendar-alt"></i> Timeline da Transição
                     </a></li>
-                    <li><a href="#" class="nav-link" data-section="dados-abertos">
-                        <i class="fas fa-table"></i> Dados Abertos
-                    </a></li>
                     <li><a href="#" class="nav-link" data-section="assistente-ia">
                         <i class="fas fa-robot"></i> Assistente IA
                     </a></li>
@@ -1244,106 +1241,368 @@
             </section>
 
             <!-- ======================================== -->
-            <!-- SEÇÃO 7: ASSISTENTE IA -->
+            <!-- SEÇÃO 7: ASSISTENTE IA (Estilo ChatGPT) -->
             <!-- ======================================== -->
-            <section class="section" id="section-assistente-ia" style="height: calc(100vh - 120px); min-height: 500px; display: flex; flex-direction: column; justify-content: center; background-color: #ffffff; padding: 0; margin: 0; border-top: 1px solid #e5e5e5; position: relative; overflow: hidden;">
-            
-                <div id="gpt-chat-history" style="display: none; flex: 1; overflow-y: auto; padding: 20px; width: 100%; max-width: 800px; margin: 0 auto;"></div>
-            
-                <div id="gpt-main-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 20px; width: 100%; max-width: 900px; margin: 0 auto; transition: opacity 0.3s ease;">
-                    
-                    <div class="gpt-header" style="text-align: center; margin-bottom: 15px;">
-                        <div class="gpt-logo" style="width: 40px; height: 40px; background-color: #10a37f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px auto; color: white; font-size: 20px;">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h2 style="font-size: 1.4rem; font-weight: 600; color: #343541; margin: 0;">Como posso ajudar sobre a reforma tributária?</h2>
-                    </div>
-            
-                    <div class="gpt-suggestions-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; margin-bottom: 15px;">
-                        
-                        <button class="suggestion-card" onclick="enviarSugestao('A comida vai ficar mais cara ou mais barata com a Cesta Básica Nacional?')">
-                            <div style="font-weight: 600; margin-bottom: 2px; color: #10a37f; font-size: 0.85rem;"><i class="fas fa-shopping-basket"></i> Preço da Comida</div>
-                            <div style="font-size: 0.75rem; color: #6e6e80; line-height: 1.2;">A Cesta Básica Nacional vai baratear os alimentos?</div>
-                        </button>
-            
-                        <button class="suggestion-card" onclick="enviarSugestao('Quando a reforma começa a valer de verdade?')">
-                            <div style="font-weight: 600; margin-bottom: 2px; color: #10a37f; font-size: 0.85rem;"><i class="fas fa-calendar-alt"></i> Início da Vigência</div>
-                            <div style="font-size: 0.75rem; color: #6e6e80; line-height: 1.2;">Quando começa a cobrança do IBS e CBS?</div>
-                        </button>
-            
-                        <button class="suggestion-card" onclick="enviarSugestao('O Simples Nacional vai acabar?')">
-                            <div style="font-weight: 600; margin-bottom: 2px; color: #10a37f; font-size: 0.85rem;"><i class="fas fa-store"></i> Futuro do Simples</div>
-                            <div style="font-size: 0.75rem; color: #6e6e80; line-height: 1.2;">O regime simplificado para MEIs vai acabar?</div>
-                        </button>
-            
-                        <button class="suggestion-card" onclick="enviarSugestao('Como o Split Payment afeta o capital de giro das empresas?')">
-                            <div style="font-weight: 600; margin-bottom: 2px; color: #e74c3c; font-size: 0.85rem;"><i class="fas fa-random"></i> Split Payment & Caixa</div>
-                            <div style="font-size: 0.75rem; color: #6e6e80; line-height: 1.2;">Impacto no fluxo de caixa e fim do "float".</div>
-                        </button>
-            
-                        <button class="suggestion-card" onclick="enviarSugestao('Qual é a estratégia de crédito para o Simples Nacional no B2B?')">
-                            <div style="font-weight: 600; margin-bottom: 2px; color: #e74c3c; font-size: 0.85rem;"><i class="fas fa-calculator"></i> Simples B2B & Crédito</div>
-                            <div style="font-size: 0.75rem; color: #6e6e80; line-height: 1.2;">Vale a pena recolher "por fora" no B2B?</div>
-                        </button>
-            
-                        <button class="suggestion-card" onclick="enviarSugestao('Como funcionará o Contencioso Administrativo no Comitê Gestor?')">
-                            <div style="font-weight: 600; margin-bottom: 2px; color: #e74c3c; font-size: 0.85rem;"><i class="fas fa-gavel"></i> Contencioso CG-IBS</div>
-                            <div style="font-size: 0.75rem; color: #6e6e80; line-height: 1.2;">Riscos jurídicos e centralização de julgamentos.</div>
-                        </button>
-                    </div>
-                </div>
-            
-                <div class="gpt-input-area" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 0 20px 10px 20px; z-index: 10;">
-                    <div class="input-wrapper" style="position: relative; width: 100%;">
-                        <input type="text" id="chatInput" placeholder="Envie uma mensagem para o Observatório..." 
-                               onkeypress="if(event.key === 'Enter') enviarMensagem()"
-                               style="width: 100%; padding: 12px 45px 12px 16px; border-radius: 12px; border: 1px solid #e5e5e5; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.08); font-size: 0.95rem; color: #343541; outline: none;">
-                        
-                        <button onclick="enviarMensagem()" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #19c37d; color: white; border: none; border-radius: 8px; width: 30px; height: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">
-                            <i class="fas fa-paper-plane" style="font-size: 0.8rem;"></i>
-                        </button>
-                    </div>
-                    <p style="text-align: center; color: #9a9b9e; font-size: 0.65rem; margin-top: 6px;">
-                        O Assistente IA pode cometer erros. Considere verificar informações na LC 214/2025.
-                    </p>
-                </div>
-            
+            <section class="section" id="section-assistente-ia">
                 <style>
-                 .suggestion-card {
-                        background: #f7f7f8;
-                        border: 1px solid #e5e5e5;
-                        border-radius: 8px;
-                        padding: 8px 12px;
-                        text-align: left;
-                        cursor: pointer;
-                        transition: background 0.2s;
-                        color: #343541;
+                    /* Estilo ChatGPT para Assistente IA */
+                    #section-assistente-ia {
+                        height: calc(100vh - 180px);
+                        min-height: 500px;
                         display: flex;
                         flex-direction: column;
+                        background: #ffffff;
+                        padding: 0 !important;
+                        margin: 0;
+                        overflow: hidden;
+                    }
+                    
+                    #section-assistente-ia.active {
+                        display: flex !important;
+                    }
+                    
+                    .gpt-chat-container {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        max-width: 900px;
+                        width: 100%;
+                        margin: 0 auto;
+                        padding: 0 20px;
+                        overflow: hidden;
+                    }
+                    
+                    /* Área de histórico de mensagens */
+                    .gpt-chat-history {
+                        flex: 1;
+                        overflow-y: auto;
+                        padding: 20px 0;
+                        display: none;
+                    }
+                    
+                    .gpt-chat-history.has-messages {
+                        display: block;
+                    }
+                    
+                    .gpt-message {
+                        display: flex;
+                        gap: 12px;
+                        padding: 16px 0;
+                        border-bottom: 1px solid #f0f0f0;
+                    }
+                    
+                    .gpt-message:last-child {
+                        border-bottom: none;
+                    }
+                    
+                    .gpt-message-avatar {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 4px;
+                        display: flex;
+                        align-items: center;
                         justify-content: center;
-                        height: 100%;
+                        flex-shrink: 0;
+                        font-size: 16px;
                     }
-                 .suggestion-card:hover {
-                        background-color: #d9d9e3;
+                    
+                    .gpt-message.user .gpt-message-avatar {
+                        background: #1351B4;
+                        color: white;
                     }
-                    #chatInput:focus {
-                        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+                    
+                    .gpt-message.assistant .gpt-message-avatar {
+                        background: #10a37f;
+                        color: white;
+                    }
+                    
+                    .gpt-message-content {
+                        flex: 1;
+                        font-size: 15px;
+                        line-height: 1.6;
+                        color: #343541;
+                    }
+                    
+                    .gpt-message-content p {
+                        margin: 0 0 10px 0;
+                    }
+                    
+                    .gpt-message-content p:last-child {
+                        margin-bottom: 0;
+                    }
+                    
+                    .gpt-message-content ul {
+                        margin: 10px 0;
+                        padding-left: 20px;
+                    }
+                    
+                    .gpt-message-content li {
+                        margin: 6px 0;
+                    }
+                    
+                    /* Container principal quando não há mensagens */
+                    .gpt-main-container {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 20px;
+                        transition: opacity 0.3s ease;
+                    }
+                    
+                    .gpt-main-container.hidden {
+                        display: none;
+                    }
+                    
+                    .gpt-header {
+                        text-align: center;
+                        margin-bottom: 24px;
+                    }
+                    
+                    .gpt-logo {
+                        width: 50px;
+                        height: 50px;
+                        background: #10a37f;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 16px;
+                        color: white;
+                        font-size: 24px;
+                    }
+                    
+                    .gpt-header h2 {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        color: #343541;
+                        margin: 0;
+                    }
+                    
+                    /* Grid de sugestões */
+                    .gpt-suggestions-grid {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 10px;
+                        width: 100%;
+                        max-width: 750px;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .gpt-suggestion-card {
+                        background: #f7f7f8;
+                        border: 1px solid #e5e5e5;
+                        border-radius: 12px;
+                        padding: 14px 16px;
+                        text-align: left;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        color: #343541;
+                    }
+                    
+                    .gpt-suggestion-card:hover {
+                        background: #ececf1;
                         border-color: #d9d9e3;
                     }
-                    /* Ajuste para telas menores */
+                    
+                    .gpt-suggestion-card .card-title {
+                        font-weight: 600;
+                        font-size: 0.85rem;
+                        margin-bottom: 4px;
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                    }
+                    
+                    .gpt-suggestion-card .card-title i {
+                        color: #10a37f;
+                    }
+                    
+                    .gpt-suggestion-card.red .card-title i {
+                        color: #e74c3c;
+                    }
+                    
+                    .gpt-suggestion-card .card-desc {
+                        font-size: 0.75rem;
+                        color: #6e6e80;
+                        line-height: 1.3;
+                    }
+                    
+                    /* Área de input fixa no rodapé */
+                    .gpt-input-area {
+                        width: 100%;
+                        max-width: 800px;
+                        margin: 0 auto;
+                        padding: 16px 20px 12px;
+                        background: white;
+                    }
+                    
+                    .gpt-input-wrapper {
+                        position: relative;
+                        width: 100%;
+                    }
+                    
+                    .gpt-input {
+                        width: 100%;
+                        padding: 14px 50px 14px 18px;
+                        border-radius: 24px;
+                        border: 1px solid #d9d9e3;
+                        background: #ffffff;
+                        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                        font-size: 15px;
+                        color: #343541;
+                        outline: none;
+                        transition: all 0.2s ease;
+                    }
+                    
+                    .gpt-input:focus {
+                        border-color: #10a37f;
+                        box-shadow: 0 2px 12px rgba(16, 163, 127, 0.15);
+                    }
+                    
+                    .gpt-input::placeholder {
+                        color: #8e8ea0;
+                    }
+                    
+                    .gpt-send-btn {
+                        position: absolute;
+                        right: 8px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: #10a37f;
+                        color: white;
+                        border: none;
+                        border-radius: 8px;
+                        width: 36px;
+                        height: 36px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: background 0.2s ease;
+                    }
+                    
+                    .gpt-send-btn:hover {
+                        background: #0d8a6a;
+                    }
+                    
+                    .gpt-send-btn i {
+                        font-size: 14px;
+                    }
+                    
+                    .gpt-disclaimer {
+                        text-align: center;
+                        color: #9a9b9e;
+                        font-size: 0.7rem;
+                        margin-top: 8px;
+                    }
+                    
+                    /* Indicador de digitação */
+                    .gpt-typing {
+                        display: flex;
+                        gap: 4px;
+                        padding: 8px 0;
+                    }
+                    
+                    .gpt-typing span {
+                        width: 8px;
+                        height: 8px;
+                        background: #10a37f;
+                        border-radius: 50%;
+                        animation: typing 1.4s infinite ease-in-out;
+                    }
+                    
+                    .gpt-typing span:nth-child(1) { animation-delay: 0s; }
+                    .gpt-typing span:nth-child(2) { animation-delay: 0.2s; }
+                    .gpt-typing span:nth-child(3) { animation-delay: 0.4s; }
+                    
+                    @keyframes typing {
+                        0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+                        30% { transform: translateY(-8px); opacity: 1; }
+                    }
+                    
+                    /* Responsivo */
                     @media (max-width: 768px) {
-                     .gpt-suggestions-grid {
+                        .gpt-suggestions-grid {
                             grid-template-columns: 1fr;
                         }
+                        
                         #section-assistente-ia {
-                            justify-content: flex-start; /* Em mobile, deixa rolar se precisar */
-                            padding-top: 20px;
                             height: auto;
-                            min-height: 80vh;
+                            min-height: calc(100vh - 200px);
                         }
                     }
                 </style>
+                
+                <div class="gpt-chat-container">
+                    <!-- Histórico de mensagens (aparece quando há conversas) -->
+                    <div class="gpt-chat-history" id="gptChatHistory">
+                        <!-- Mensagens serão inseridas aqui -->
+                    </div>
+                    
+                    <!-- Container principal (sugestões iniciais) -->
+                    <div class="gpt-main-container" id="gptMainContainer">
+                        <div class="gpt-header">
+                            <div class="gpt-logo">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h2>Como posso ajudar sobre a reforma tributária?</h2>
+                        </div>
+                        
+                        <div class="gpt-suggestions-grid">
+                            <button class="gpt-suggestion-card" onclick="enviarSugestaoGPT('A comida vai ficar mais cara ou mais barata com a Cesta Básica Nacional?')">
+                                <div class="card-title"><i class="fas fa-shopping-basket"></i> Preço da Comida</div>
+                                <div class="card-desc">A Cesta Básica Nacional vai baratear os alimentos?</div>
+                            </button>
+                            
+                            <button class="gpt-suggestion-card" onclick="enviarSugestaoGPT('Quando a reforma começa a valer de verdade?')">
+                                <div class="card-title"><i class="fas fa-calendar-alt"></i> Início da Vigência</div>
+                                <div class="card-desc">Quando começa a cobrança do IBS e CBS?</div>
+                            </button>
+                            
+                            <button class="gpt-suggestion-card" onclick="enviarSugestaoGPT('O Simples Nacional vai acabar?')">
+                                <div class="card-title"><i class="fas fa-store"></i> Futuro do Simples</div>
+                                <div class="card-desc">O regime simplificado para MEIs vai acabar?</div>
+                            </button>
+                            
+                            <button class="gpt-suggestion-card red" onclick="enviarSugestaoGPT('Como o Split Payment afeta o capital de giro das empresas?')">
+                                <div class="card-title"><i class="fas fa-random"></i> Split Payment & Caixa</div>
+                                <div class="card-desc">Impacto no fluxo de caixa e fim do "float".</div>
+                            </button>
+                            
+                            <button class="gpt-suggestion-card red" onclick="enviarSugestaoGPT('Qual é a estratégia de crédito para o Simples Nacional no B2B?')">
+                                <div class="card-title"><i class="fas fa-calculator"></i> Simples B2B & Crédito</div>
+                                <div class="card-desc">Vale a pena recolher "por fora" no B2B?</div>
+                            </button>
+                            
+                            <button class="gpt-suggestion-card red" onclick="enviarSugestaoGPT('Como funcionará o Contencioso Administrativo no Comitê Gestor?')">
+                                <div class="card-title"><i class="fas fa-gavel"></i> Contencioso CG-IBS</div>
+                                <div class="card-desc">Riscos jurídicos e centralização de julgamentos.</div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Área de input -->
+                    <div class="gpt-input-area">
+                        <div class="gpt-input-wrapper">
+                            <input type="text" 
+                                   class="gpt-input" 
+                                   id="gptChatInput" 
+                                   placeholder="Envie uma mensagem para o Observatório..." 
+                                   onkeypress="if(event.key === 'Enter') enviarMensagemGPT()">
+                            <button class="gpt-send-btn" onclick="enviarMensagemGPT()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <p class="gpt-disclaimer">
+                            O Assistente IA pode cometer erros. Considere verificar informações na LC 214/2025.
+                        </p>
+                    </div>
+                </div>
             </section>
+
+        </div>
     </main>
 
     <!-- Modal de Metodologia -->
@@ -1384,7 +1643,7 @@
         </div>
     </div>
 
-    <!-- Modal de Dados Abertos-->
+    <!-- Modal de Dados Abertos -->
     <div class="modal" id="modalDadosAbertos" aria-hidden="true" role="dialog" aria-modal="true">
         <div class="modal-content wide-modal">
             <button class="modal-close" onclick="fecharModalDadosAbertos()">
@@ -1452,30 +1711,6 @@
                         <a href="https://www.confaz.fazenda.gov.br/" target="_blank" class="fonte-card">
                             <strong>CONFAZ</strong><span>Fazenda</span>
                         </a>
-                    </div>
-                </div>
-
-                <div class="table-card">
-                    <div class="table-header">
-                        <h3><i class="fas fa-table"></i> Base de Dados Completa</h3>
-                    </div>
-                    <div class="table-body" style="max-height: 350px; overflow-y: auto;">
-                        <table class="data-table" id="tabelaCompleta">
-                            <thead>
-                                <tr>
-                                    <th>UF</th>
-                                    <th>Região</th>
-                                    <th>PIBpc</th>
-                                    <th>Ganhos IBS</th>
-                                    <th>Perdas IBS</th>
-                                    <th>Ganhadores</th>
-                                    <th>Perdedores</th>
-                                    <th>% Ganhadores</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabelaCompletaBody">
-                                </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
@@ -1557,7 +1792,7 @@
                     <h5>Documentação</h5>
                     <ul>
                         <li><a href="#" onclick="abrirModalMetodologia(); return false;"><i class="fas fa-book"></i> Metodologia</a></li>
-                        <li><a href="#section-dados-abertos"><i class="fas fa-database"></i> Dados Abertos</a></li>
+                        <li><a href="#" onclick="abrirModalDadosAbertos(); return false;"><i class="fas fa-database"></i> Dados Abertos</a></li>
                         <li><a href="#" onclick="mostrarAPI(); return false;"><i class="fas fa-code"></i> API REST</a></li>
                     </ul>
                 </div>
@@ -1614,7 +1849,9 @@
             }
             
             // Inicializar gráficos adicionais
-            inicializarGraficosArrecadacao();
+            if (typeof inicializarGraficosArrecadacao === 'function') {
+                inicializarGraficosArrecadacao();
+            }
             
             console.log('🚀 Observatório da Reforma Tributária inicializado');
         });
@@ -1629,6 +1866,20 @@
 
         function fecharModalMetodologia() {
             const modal = document.getElementById('modalMetodologia');
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function abrirModalDadosAbertos() {
+            const modal = document.getElementById('modalDadosAbertos');
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharModalDadosAbertos() {
+            const modal = document.getElementById('modalDadosAbertos');
             modal.classList.remove('open');
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
@@ -1663,91 +1914,10 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 fecharModalMetodologia();
+                fecharModalDadosAbertos();
                 fecharModalAPI();
             }
         });
-
-        // Gráficos de Arrecadação
-        function inicializarGraficosArrecadacao() {
-            // Gráfico de Arrecadação por UF
-            const chartArrecadacaoUF = document.getElementById('chartArrecadacaoUF');
-            if (chartArrecadacaoUF) {
-                const chart = echarts.init(chartArrecadacaoUF);
-                const option = {
-                    tooltip: { trigger: 'axis' },
-                    legend: { data: ['ICMS 2024', 'IBS Projetado 2033'], bottom: 0 },
-                    grid: { left: '3%', right: '4%', bottom: '15%', containLabel: true },
-                    xAxis: { 
-                        type: 'category', 
-                        data: ['SP', 'MG', 'RJ', 'RS', 'PR', 'BA', 'SC', 'GO', 'PE', 'CE'],
-                        axisLabel: { fontSize: 11 }
-                    },
-                    yAxis: { type: 'value', name: 'R$ bilhões' },
-                    series: [
-                        { name: 'ICMS 2024', type: 'bar', data: [198, 78, 59, 46, 49, 43, 32, 28, 26, 23], itemStyle: { color: '#1a365d' } },
-                        { name: 'IBS Projetado 2033', type: 'bar', data: [180, 85, 55, 52, 55, 50, 38, 35, 32, 28], itemStyle: { color: '#48bb78' } }
-                    ]
-                };
-                chart.setOption(option);
-                window.addEventListener('resize', () => chart.resize());
-            }
-
-            // Gráfico de Evolução da Arrecadação
-            const chartEvolucao = document.getElementById('chartEvolucaoArrecadacao');
-            if (chartEvolucao) {
-                const chart = echarts.init(chartEvolucao);
-                const option = {
-                    tooltip: { trigger: 'axis' },
-                    legend: { data: ['ICMS/ISS', 'IBS', 'Total'], bottom: 0 },
-                    grid: { left: '3%', right: '4%', bottom: '15%', containLabel: true },
-                    xAxis: { 
-                        type: 'category', 
-                        data: ['2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033']
-                    },
-                    yAxis: { type: 'value', name: 'R$ bilhões' },
-                    series: [
-                        { name: 'ICMS/ISS', type: 'line', data: [900, 920, 920, 920, 920, 828, 736, 644, 552, 0], itemStyle: { color: '#c53030' }, areaStyle: { opacity: 0.3 } },
-                        { name: 'IBS', type: 'line', data: [0, 0, 10, 10, 10, 100, 200, 300, 400, 1000], itemStyle: { color: '#48bb78' }, areaStyle: { opacity: 0.3 } },
-                        { name: 'Total', type: 'line', data: [900, 920, 930, 930, 930, 928, 936, 944, 952, 1000], itemStyle: { color: '#1a365d' }, lineStyle: { width: 3 } }
-                    ]
-                };
-                chart.setOption(option);
-                window.addEventListener('resize', () => chart.resize());
-            }
-        }
-
-        // Atualizar visualização de arrecadação
-        function atualizarVisualizacaoArrecadacao() {
-            const visualizacao = document.getElementById('filterVisualizacao')?.value;
-            const containerMunicipio = document.getElementById('filterMunicipioContainer');
-            
-            if (containerMunicipio) {
-                if (visualizacao === 'municipios') {
-                    containerMunicipio.style.display = 'block';
-                } else {
-                    containerMunicipio.style.display = 'none';
-                }
-            }
-        }
-
-        // Carregar vídeo do YouTube sob demanda
-        function carregarVideo(element, videoId) {
-            const wrapper = element.closest('.video-wrapper');
-            if (!wrapper) return;
-            
-            // Criar iframe do YouTube
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-            iframe.title = 'Vídeo sobre Reforma Tributária';
-            iframe.frameBorder = '0';
-            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            iframe.allowFullscreen = true;
-            iframe.loading = 'lazy';
-            
-            // Substituir placeholder pelo iframe
-            wrapper.innerHTML = '';
-            wrapper.appendChild(iframe);
-        }
 
         // Sistema de Abas - Trilha de Aprendizagem (gov.br style)
         document.addEventListener('DOMContentLoaded', function() {
@@ -1793,8 +1963,15 @@
                 });
             });
             
-            // Inicializar gráficos da seção Impacto na Arrecadação (novos IDs)
-            inicializarGraficosImpacto();
+            // Inicializar gráficos da seção Impacto na Arrecadação
+            if (typeof inicializarGraficosImpacto === 'function') {
+                inicializarGraficosImpacto();
+            }
+            
+            // Inicializar gráficos da seção Timeline
+            if (typeof inicializarGraficosTimeline === 'function') {
+                setTimeout(inicializarGraficosTimeline, 500);
+            }
         });
         
         // Gráficos da seção Impacto na Arrecadação (função global)
@@ -1818,11 +1995,8 @@
             // ========== GRÁFICO 1: Impacto por UF - IBS/CBS ==========
             const chartMapaEl = document.getElementById('chartMapaBrasilImpacto');
             if (chartMapaEl && typeof echarts !== 'undefined') {
-                // Dispose se já existe
                 let existingChart = echarts.getInstanceByDom(chartMapaEl);
-                if (existingChart) {
-                    existingChart.dispose();
-                }
+                if (existingChart) existingChart.dispose();
                 
                 const chartMapa = echarts.init(chartMapaEl);
                 const optionMapa = {
@@ -1832,33 +2006,18 @@
                         formatter: function(params) {
                             let html = '<strong>' + params[0].axisValue + '</strong><br/>';
                             params.forEach(function(p) {
-                                const cor = p.color;
-                                html += '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + cor + ';margin-right:5px;"></span>';
+                                html += '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + p.color + ';margin-right:5px;"></span>';
                                 html += p.seriesName + ': R$ ' + (p.value / 1000).toFixed(1) + ' bi<br/>';
                             });
                             return html;
                         }
                     },
-                    legend: { 
-                        data: ['Ganhos', 'Perdas'], 
-                        bottom: 0,
-                        textStyle: { fontSize: 12 }
-                    },
-                    grid: { 
-                        left: '3%', 
-                        right: '4%', 
-                        bottom: '15%', 
-                        top: '10%', 
-                        containLabel: true 
-                    },
+                    legend: { data: ['Ganhos', 'Perdas'], bottom: 0, textStyle: { fontSize: 12 } },
+                    grid: { left: '3%', right: '4%', bottom: '15%', top: '10%', containLabel: true },
                     xAxis: { 
                         type: 'category', 
                         data: dadosUF.map(function(d) { return d.uf; }),
-                        axisLabel: { 
-                            fontSize: 12, 
-                            fontWeight: 'bold',
-                            color: '#333'
-                        },
+                        axisLabel: { fontSize: 12, fontWeight: 'bold', color: '#333' },
                         axisLine: { lineStyle: { color: '#ccc' } }
                     },
                     yAxis: { 
@@ -1868,37 +2027,22 @@
                         axisLabel: {
                             fontSize: 11,
                             formatter: function(val) {
-                                if (val >= 1000) {
-                                    return (val / 1000).toFixed(0) + ' bi';
-                                }
-                                return val + ' mi';
+                                return val >= 1000 ? (val / 1000).toFixed(0) + ' bi' : val + ' mi';
                             }
                         },
                         splitLine: { lineStyle: { type: 'dashed', color: '#e0e0e0' } }
                     },
                     series: [
                         { 
-                            name: 'Ganhos', 
-                            type: 'bar', 
+                            name: 'Ganhos', type: 'bar', 
                             data: dadosUF.map(function(d) { return d.ganhos; }),
-                            itemStyle: { 
-                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                    { offset: 0, color: '#68d391' },
-                                    { offset: 1, color: '#48bb78' }
-                                ])
-                            },
+                            itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#68d391' }, { offset: 1, color: '#48bb78' }]) },
                             barWidth: '35%'
                         },
                         { 
-                            name: 'Perdas', 
-                            type: 'bar', 
+                            name: 'Perdas', type: 'bar', 
                             data: dadosUF.map(function(d) { return d.perdas; }),
-                            itemStyle: { 
-                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                    { offset: 0, color: '#fc8181' },
-                                    { offset: 1, color: '#f56565' }
-                                ])
-                            },
+                            itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#fc8181' }, { offset: 1, color: '#f56565' }]) },
                             barWidth: '35%'
                         }
                     ]
@@ -1911,11 +2055,8 @@
             // ========== GRÁFICO 2: Proporção Ganhadores vs Perdedores ==========
             const chartPropEl = document.getElementById('chartProporcaoImpacto');
             if (chartPropEl && typeof echarts !== 'undefined') {
-                // Dispose se já existe
                 let existingChart2 = echarts.getInstanceByDom(chartPropEl);
-                if (existingChart2) {
-                    existingChart2.dispose();
-                }
+                if (existingChart2) existingChart2.dispose();
                 
                 const chartProp = echarts.init(chartPropEl);
                 const optionProp = {
@@ -1926,65 +2067,23 @@
                                    params.value.toLocaleString('pt-BR') + ' municípios (' + params.percent.toFixed(1) + '%)';
                         }
                     },
-                    legend: {
-                        orient: 'horizontal',
-                        bottom: 0,
-                        data: ['Ganhadores', 'Perdedores'],
-                        textStyle: { fontSize: 12 }
-                    },
+                    legend: { orient: 'horizontal', bottom: 0, data: ['Ganhadores', 'Perdedores'], textStyle: { fontSize: 12 } },
                     series: [{
                         name: 'Municípios',
                         type: 'pie',
                         radius: ['40%', '70%'],
                         center: ['50%', '45%'],
                         avoidLabelOverlap: false,
-                        itemStyle: {
-                            borderRadius: 8,
-                            borderColor: '#fff',
-                            borderWidth: 2
-                        },
-                        label: {
-                            show: true,
-                            position: 'inside',
-                            formatter: '{d}%',
-                            fontSize: 16,
-                            fontWeight: 'bold',
-                            color: '#fff'
-                        },
+                        itemStyle: { borderRadius: 8, borderColor: '#fff', borderWidth: 2 },
+                        label: { show: true, position: 'inside', formatter: '{d}%', fontSize: 16, fontWeight: 'bold', color: '#fff' },
                         emphasis: {
-                            label: {
-                                show: true,
-                                fontSize: 18,
-                                fontWeight: 'bold'
-                            },
-                            itemStyle: {
-                                shadowBlur: 10,
-                                shadowOffsetX: 0,
-                                shadowColor: 'rgba(0, 0, 0, 0.5)'
-                            }
+                            label: { show: true, fontSize: 18, fontWeight: 'bold' },
+                            itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)' }
                         },
                         labelLine: { show: false },
                         data: [
-                            { 
-                                value: 4539, 
-                                name: 'Ganhadores', 
-                                itemStyle: { 
-                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                        { offset: 0, color: '#68d391' },
-                                        { offset: 1, color: '#38a169' }
-                                    ])
-                                }
-                            },
-                            { 
-                                value: 1030, 
-                                name: 'Perdedores', 
-                                itemStyle: { 
-                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                        { offset: 0, color: '#fc8181' },
-                                        { offset: 1, color: '#e53e3e' }
-                                    ])
-                                }
-                            }
+                            { value: 4539, name: 'Ganhadores', itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#68d391' }, { offset: 1, color: '#38a169' }]) } },
+                            { value: 1030, name: 'Perdedores', itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#fc8181' }, { offset: 1, color: '#e53e3e' }]) } }
                         ]
                     }]
                 };
@@ -2023,30 +2122,9 @@
                     xAxis: { type: 'category', data: anos, boundaryGap: false },
                     yAxis: { type: 'value', name: 'Alíquota (%)', max: 30 },
                     series: [
-                        {
-                            name: 'CBS',
-                            type: 'line',
-                            data: [0, 0, 0.9, 0.9, 8.8, 8.8, 8.8, 8.8, 8.8, 8.8],
-                            itemStyle: { color: '#2b6cb0' },
-                            areaStyle: { opacity: 0.1 },
-                            smooth: true
-                        },
-                        {
-                            name: 'IBS',
-                            type: 'line',
-                            data: [0, 0, 0.1, 0.1, 0.1, 1.77, 3.54, 5.31, 7.08, 17.7],
-                            itemStyle: { color: '#38a169' },
-                            areaStyle: { opacity: 0.1 },
-                            smooth: true
-                        },
-                        {
-                            name: 'Total IVA',
-                            type: 'line',
-                            data: [0, 0, 1.0, 1.0, 8.9, 10.57, 12.34, 14.11, 15.88, 26.5],
-                            itemStyle: { color: '#1a365d' },
-                            lineStyle: { width: 3 },
-                            smooth: true
-                        }
+                        { name: 'CBS', type: 'line', data: [0, 0, 0.9, 0.9, 8.8, 8.8, 8.8, 8.8, 8.8, 8.8], itemStyle: { color: '#2b6cb0' }, areaStyle: { opacity: 0.1 }, smooth: true },
+                        { name: 'IBS', type: 'line', data: [0, 0, 0.1, 0.1, 0.1, 1.77, 3.54, 5.31, 7.08, 17.7], itemStyle: { color: '#38a169' }, areaStyle: { opacity: 0.1 }, smooth: true },
+                        { name: 'Total IVA', type: 'line', data: [0, 0, 1.0, 1.0, 8.9, 10.57, 12.34, 14.11, 15.88, 26.5], itemStyle: { color: '#1a365d' }, lineStyle: { width: 3 }, smooth: true }
                     ]
                 };
                 chartAliquotas.setOption(optionAliquotas);
@@ -2079,30 +2157,8 @@
                     xAxis: { type: 'category', data: ['2028', '2029', '2030', '2031', '2032', '2033'] },
                     yAxis: { type: 'value', name: '% da Receita', max: 100 },
                     series: [
-                        {
-                            name: 'ICMS/ISS',
-                            type: 'bar',
-                            stack: 'total',
-                            data: [100, 90, 80, 70, 60, 0],
-                            itemStyle: { 
-                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                    { offset: 0, color: '#fc8181' },
-                                    { offset: 1, color: '#c53030' }
-                                ])
-                            }
-                        },
-                        {
-                            name: 'IBS',
-                            type: 'bar',
-                            stack: 'total',
-                            data: [0, 10, 20, 30, 40, 100],
-                            itemStyle: { 
-                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                    { offset: 0, color: '#68d391' },
-                                    { offset: 1, color: '#276749' }
-                                ])
-                            }
-                        }
+                        { name: 'ICMS/ISS', type: 'bar', stack: 'total', data: [100, 90, 80, 70, 60, 0], itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#fc8181' }, { offset: 1, color: '#c53030' }]) } },
+                        { name: 'IBS', type: 'bar', stack: 'total', data: [0, 10, 20, 30, 40, 100], itemStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#68d391' }, { offset: 1, color: '#276749' }]) } }
                     ]
                 };
                 chartTransicao.setOption(optionTransicao);
@@ -2111,11 +2167,75 @@
             }
         };
         
-        // Chamar inicialização da Timeline quando necessário
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar gráficos da Timeline
-            setTimeout(inicializarGraficosTimeline, 500);
-        });
+        // ========================================
+        // ASSISTENTE IA - Estilo ChatGPT
+        // ========================================
+        
+        function enviarMensagemGPT() {
+            const input = document.getElementById('gptChatInput');
+            const mensagem = input.value.trim();
+            
+            if (!mensagem) return;
+            
+            // Esconder container principal e mostrar histórico
+            const mainContainer = document.getElementById('gptMainContainer');
+            const chatHistory = document.getElementById('gptChatHistory');
+            
+            mainContainer.classList.add('hidden');
+            chatHistory.classList.add('has-messages');
+            
+            // Adicionar mensagem do usuário
+            adicionarMensagemGPT(mensagem, 'user');
+            input.value = '';
+            
+            // Mostrar indicador de digitação
+            mostrarDigitandoGPT();
+            
+            // Processar e responder
+            setTimeout(function() {
+                removerDigitandoGPT();
+                const resposta = processarPergunta(mensagem);
+                adicionarMensagemGPT(resposta, 'assistant');
+            }, 1000 + Math.random() * 1000);
+        }
+        
+        function enviarSugestaoGPT(pergunta) {
+            document.getElementById('gptChatInput').value = pergunta;
+            enviarMensagemGPT();
+        }
+        
+        function adicionarMensagemGPT(texto, tipo) {
+            const container = document.getElementById('gptChatHistory');
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'gpt-message ' + tipo;
+            
+            const icone = tipo === 'assistant' ? 'fa-robot' : 'fa-user';
+            
+            messageDiv.innerHTML = 
+                '<div class="gpt-message-avatar"><i class="fas ' + icone + '"></i></div>' +
+                '<div class="gpt-message-content">' + texto + '</div>';
+            
+            container.appendChild(messageDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        function mostrarDigitandoGPT() {
+            const container = document.getElementById('gptChatHistory');
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'gptTypingIndicator';
+            typingDiv.className = 'gpt-message assistant';
+            typingDiv.innerHTML = 
+                '<div class="gpt-message-avatar"><i class="fas fa-robot"></i></div>' +
+                '<div class="gpt-message-content"><div class="gpt-typing"><span></span><span></span><span></span></div></div>';
+            container.appendChild(typingDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+        
+        function removerDigitandoGPT() {
+            const typing = document.getElementById('gptTypingIndicator');
+            if (typing) typing.remove();
+        }
     </script>
 </body>
 </html>

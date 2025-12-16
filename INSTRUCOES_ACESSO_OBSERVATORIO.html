@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruções de Acesso - Observatório da Reforma Tributária Brasileira</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 40px;
+            max-width: 210mm;
+            margin: 0 auto;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                font-size: 10pt;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+        
+        /* Header Institucional */
+        .header-institucional {
+            text-align: center;
+            border-bottom: 3px solid #1351B4;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header-institucional img {
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        
+        .titulo-premio {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #1351B4;
+            margin-bottom: 5px;
+        }
+        
+        .subtitulo-categoria {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #071D41;
+            margin-bottom: 15px;
+        }
+        
+        .titulo-documento {
+            font-size: 18pt;
+            font-weight: 700;
+            color: #071D41;
+            margin-top: 15px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        
+        /* Link de Acesso em Destaque */
+        .caixa-acesso {
+            background: linear-gradient(135deg, #1351B4 0%, #071D41 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .caixa-acesso h2 {
+            font-size: 14pt;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .link-acesso {
+            background: white;
+            color: #1351B4;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 12pt;
+            font-weight: 700;
+            display: inline-block;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .link-acesso::before {
+            content: "☑ ";
+        }
+        
+        .info-hospedagem {
+            margin-top: 15px;
+            font-size: 10pt;
+            opacity: 0.9;
+        }
+        
+        /* Seções */
+        .secao {
+            margin: 25px 0;
+        }
+        
+        .secao h2 {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #1351B4;
+            border-bottom: 2px solid #1351B4;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .secao h2 .numero {
+            background: #1351B4;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12pt;
+        }
+        
+        /* Lista de navegação */
+        .lista-navegacao {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            list-style: none;
+        }
+        
+        .lista-navegacao li {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1351B4;
+            font-weight: 500;
+        }
+        
+        .lista-navegacao li::before {
+            content: "▸ ";
+            color: #1351B4;
+        }
+        
+        /* Lista de funcionalidades */
+        .lista-funcionalidades {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        .lista-funcionalidades li {
+            padding: 10px 15px;
+            background: #E8F0FE;
+            border-radius: 6px;
+            font-size: 10pt;
+        }
+        
+        .lista-funcionalidades li::before {
+            content: "✓ ";
+            color: #1351B4;
+            font-weight: bold;
+        }
+        
+        /* Requisitos técnicos */
+        .requisitos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .requisito-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .requisito-card h4 {
+            font-size: 10pt;
+            color: #1351B4;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .requisito-card ul {
+            list-style: none;
+            font-size: 9pt;
+        }
+        
+        .requisito-card li {
+            padding: 3px 0;
+        }
+        
+        /* Navegadores */
+        .navegadores {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .navegador {
+            text-align: center;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+        
+        .navegador-icon {
+            font-size: 24pt;
+            margin-bottom: 5px;
+        }
+        
+        .navegador-nome {
+            font-weight: 600;
+            font-size: 10pt;
+        }
+        
+        .navegador-versao {
+            font-size: 9pt;
+            color: #666;
+        }
+        
+        /* Passos */
+        .passos {
+            counter-reset: passo;
+        }
+        
+        .passo {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            align-items: flex-start;
+        }
+        
+        .passo-numero {
+            background: #1351B4;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .passo-conteudo {
+            flex: 1;
+        }
+        
+        .passo-conteudo h4 {
+            font-size: 11pt;
+            color: #071D41;
+            margin-bottom: 5px;
+        }
+        
+        .passo-conteudo p {
+            font-size: 10pt;
+            color: #444;
+        }
+        
+        /* Suporte */
+        .caixa-suporte {
+            background: #FFF3CD;
+            border: 1px solid #FFE69C;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .caixa-suporte h3 {
+            color: #856404;
+            font-size: 12pt;
+            margin-bottom: 10px;
+        }
+        
+        .caixa-suporte p {
+            font-size: 10pt;
+            color: #856404;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #1351B4;
+            text-align: center;
+        }
+        
+        .footer-institucional {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #1351B4;
+            margin-bottom: 5px;
+        }
+        
+        .footer-ministerio {
+            font-size: 10pt;
+            color: #666;
+        }
+        
+        .footer-data {
+            font-size: 10pt;
+            color: #888;
+            margin-top: 10px;
+        }
+        
+        /* Botão de impressão */
+        .btn-print {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1351B4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(19, 81, 180, 0.3);
+        }
+        
+        .btn-print:hover {
+            background: #071D41;
+        }
+        
+        /* QR Code placeholder */
+        .qr-section {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border: 2px solid #1351B4;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8pt;
+            color: #666;
+            border-radius: 8px;
+        }
+        
+        .nota-importante {
+            background: #E3F2FD;
+            border-left: 4px solid #1351B4;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .nota-importante p {
+            font-size: 10pt;
+            color: #1351B4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de Impressão -->
+    <button class="btn-print no-print" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+    
+    <!-- Header Institucional -->
+    <header class="header-institucional">
+        <div class="titulo-premio">14º Prêmio SOF de Monografias</div>
+        <div class="subtitulo-categoria">Soluções em Dados Orçamentários</div>
+        <div class="titulo-documento">Instruções de Acesso<br>Observatório da Reforma Tributária Brasileira</div>
+    </header>
+    
+    <!-- Link de Acesso -->
+    <div class="caixa-acesso">
+        <h2>ENDEREÇO DE ACESSO PELA INTERNET</h2>
+        <a href="https://brunohsre.github.io/observatoriodareforma/" target="_blank" class="link-acesso">
+            https://brunohsre.github.io/observatoriodareforma/
+        </a>
+        <p class="info-hospedagem">
+            A solução está hospedada em ambiente web e pode ser acessada diretamente por qualquer navegador moderno, sem necessidade de instalação de software adicional.
+        </p>
+    </div>
+    
+    <!-- Seção 1: Como Acessar -->
+    <section class="secao">
+        <h2><span class="numero">1</span> Como Acessar a Plataforma</h2>
+        
+        <h4 style="margin-bottom: 15px; color: #071D41;">Navegadores Recomendados:</h4>
+        <div class="navegadores">
+            <div class="navegador">
+                <div class="navegador-icon">🌐</div>
+                <div class="navegador-nome">Google Chrome</div>
+                <div class="navegador-versao">Versão 90+</div>
+            </div>
+            <div class="navegador">
+                <div class="navegador-icon">🦊</div>
+                <div class="navegador-nome">Mozilla Firefox</div>
+                <div class="navegador-versao">Versão 88+</div>
+            </div>
+            <div class="navegador">
+                <div class="navegador-icon">🔷</div>
+                <div class="navegador-nome">Microsoft Edge</div>
+                <div class="navegador-versao">Versão 90+</div>
+            </div>
+            <div class="navegador">
+                <div class="navegador-icon">🧭</div>
+                <div class="navegador-nome">Safari</div>
+                <div class="navegador-versao">Versão 14+</div>
+            </div>
+        </div>
+        
+        <div class="passos">
+            <div class="passo">
+                <div class="passo-numero">1</div>
+                <div class="passo-conteudo">
+                    <h4>Abra o navegador de sua preferência</h4>
+                    <p>Utilize um dos navegadores recomendados acima para melhor experiência.</p>
+                </div>
+            </div>
+            <div class="passo">
+                <div class="passo-numero">2</div>
+                <div class="passo-conteudo">
+                    <h4>Digite ou cole o endereço na barra de navegação</h4>
+                    <p><strong>https://brunohsre.github.io/observatoriodareforma/</strong></p>
+                </div>
+            </div>
+            <div class="passo">
+                <div class="passo-numero">3</div>
+                <div class="passo-conteudo">
+                    <h4>Aguarde o carregamento da página</h4>
+                    <p>O tempo estimado de carregamento é de <strong>5 a 10 segundos</strong>, dependendo da velocidade de conexão.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nota-importante">
+            <p><strong>💡 Dica:</strong> Para adicionar aos favoritos, pressione <strong>Ctrl+D</strong> (Windows/Linux) ou <strong>Cmd+D</strong> (Mac) após acessar a plataforma.</p>
+        </div>
+    </section>
+    
+    <!-- Seção 2: Seções de Navegação -->
+    <section class="secao">
+        <h2><span class="numero">2</span> Seções de Navegação</h2>
+        <p style="margin-bottom: 15px;">A plataforma está organizada nas seguintes seções principais:</p>
+        
+        <ul class="lista-navegacao">
+            <li>Visão Geral</li>
+            <li>Reforma em Números</li>
+            <li>Impacto na Arrecadação</li>
+            <li>Riscos Fiscais</li>
+            <li>Trilha de Aprendizagem</li>
+            <li>Timeline da Transição</li>
+            <li>Dados Abertos</li>
+            <li>Assistente IA</li>
+        </ul>
+    </section>
+    
+    <!-- Seção 3: Funcionalidades -->
+    <section class="secao">
+        <h2><span class="numero">3</span> Funcionalidades da Plataforma</h2>
+        
+        <ul class="lista-funcionalidades">
+            <li>Dashboard Interativo com KPIs</li>
+            <li>Gráficos Interativos (ECharts)</li>
+            <li>Matriz de Riscos Fiscais</li>
+            <li>Comparativo entre UFs</li>
+            <li>Projeções 2024-2033</li>
+            <li>Assistente IA Integrado</li>
+            <li>Exportação de Dados (CSV)</li>
+            <li>Trilha de Aprendizagem</li>
+            <li>Timeline da Transição</li>
+            <li>Acesso ao Painel SIOP</li>
+        </ul>
+    </section>
+    
+    <!-- Seção 4: Requisitos Técnicos -->
+    <section class="secao">
+        <h2><span class="numero">4</span> Requisitos Técnicos Mínimos</h2>
+        
+        <div class="requisitos-grid">
+            <div class="requisito-card">
+                <h4>🖥️ Navegador</h4>
+                <ul>
+                    <li>• Chrome 90+ / Firefox 88+</li>
+                    <li>• Edge 90+ / Safari 14+</li>
+                    <li>• JavaScript habilitado</li>
+                </ul>
+            </div>
+            <div class="requisito-card">
+                <h4>🌐 Conexão</h4>
+                <ul>
+                    <li>• Internet banda larga</li>
+                    <li>• Velocidade mínima: 1 Mbps</li>
+                    <li>• Recomendado: 5+ Mbps</li>
+                </ul>
+            </div>
+            <div class="requisito-card">
+                <h4>📱 Resolução</h4>
+                <ul>
+                    <li>• Mínima: 1280 x 720</li>
+                    <li>• Recomendada: 1920 x 1080</li>
+                    <li>• Responsivo para mobile</li>
+                </ul>
+            </div>
+            <div class="requisito-card">
+                <h4>⚙️ Configurações</h4>
+                <ul>
+                    <li>• Sem plugins necessários</li>
+                    <li>• Cookies habilitados</li>
+                    <li>• Pop-ups permitidos (opcional)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Suporte Técnico -->
+    <section class="caixa-suporte">
+        <h3>📞 Suporte Técnico</h3>
+        <p>Em caso de dificuldades de acesso ou problemas técnicos, entre em contato através do repositório oficial no GitHub ou pelos canais de comunicação da Secretaria de Orçamento Federal.</p>
+        <p style="margin-top: 10px;"><strong>Repositório:</strong> github.com/brunohsre/observatoriodareforma</p>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-data">Dezembro de 2025</div>
+    </footer>
+</body>
+</html>
