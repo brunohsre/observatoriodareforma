@@ -1346,108 +1346,93 @@
             <!-- SEÇÃO 8: ASSISTENTE IA -->
             <!-- ======================================== -->
             <section class="section" id="section-assistente-ia">
-                <div class="section-header">
-                    <h2><i class="fas fa-robot"></i> Assistente IA - Reforma Tributária</h2>
-                    <p>Tire suas dúvidas sobre IBS, CBS, IS, Split Payment, Cashback e mais</p>
+    <div class="section-header">
+        <h2><i class="fas fa-robot"></i> Assistente IA - Reforma Tributária</h2>
+        <p>Tire suas dúvidas operacionais ou faça análises estratégicas do novo cenário fiscal</p>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <div class="chat-info">
+                <div class="ai-avatar"><i class="fas fa-brain"></i></div>
+                <h4>Assistente IA</h4>
+                <p>Especialista em LC 214/2025</p>
+            </div>
+            
+            <div class="chat-capabilities">
+                <h5><i class="fas fa-database"></i> Base de Conhecimento:</h5>
+                <ul>
+                    <li><small><i class="fas fa-check"></i> Lei Complementar 214/2025</small></li>
+                    <li><small><i class="fas fa-check"></i> Split Payment & Cashback</small></li>
+                    <li><small><i class="fas fa-check"></i> Transição 2026-2033</small></li>
+                </ul>
+            </div>
+
+            <div class="chat-suggestions">
+                <div class="suggestion-group" style="margin-bottom: 20px;">
+                    <h5 style="color: #2ecc71; border-bottom: 1px solid #444; padding-bottom: 5px; margin-bottom: 10px;">
+                        <i class="fas fa-users"></i> Dúvidas Frequentes
+                    </h5>
+                    <button class="suggestion-btn" onclick="enviarSugestao('A comida vai ficar mais cara ou mais barata com a Cesta Básica Nacional?')">
+                        Preço da Comida
+                    </button>
+                    <button class="suggestion-btn" onclick="enviarSugestao('Quando a reforma começa a valer de verdade?')">
+                        Início da Vigência
+                    </button>
+                    <button class="suggestion-btn" onclick="enviarSugestao('O Simples Nacional vai acabar?')">
+                        Futuro do Simples
+                    </button>
                 </div>
 
-                <div class="chat-container">
-                    <div class="chat-sidebar">
-                        <div class="chat-info">
-                            <div class="ai-avatar"><i class="fas fa-brain"></i></div>
-                            <h4>Assistente IA</h4>
-                            <p>Especializado em Reforma Tributária</p>
-                        </div>
-                        
-                        <div class="chat-capabilities">
-                            <h5><i class="fas fa-lightbulb"></i> O que posso responder:</h5>
+                <div class="suggestion-group">
+                    <h5 style="color: #e74c3c; border-bottom: 1px solid #444; padding-bottom: 5px; margin-bottom: 10px;">
+                        <i class="fas fa-chess-knight"></i> Análise Estratégica
+                    </h5>
+                    <button class="suggestion-btn" onclick="enviarSugestao('Como o Split Payment afeta o capital de giro das empresas?')">
+                        Split Payment & Caixa
+                    </button>
+                    <button class="suggestion-btn" onclick="enviarSugestao('Qual é a estratégia de crédito para o Simples Nacional no B2B?')">
+                        Simples B2B & Crédito
+                    </button>
+                    <button class="suggestion-btn" onclick="enviarSugestao('Como funcionará o Contencioso Administrativo no Comitê Gestor?')">
+                        Contencioso CG-IBS
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-main">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message assistant">
+                    <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="message-content">
+                        <div class="message-text">
+                            <p>Olá! 👋 Sou o assistente do <strong>Observatório da Reforma Tributária</strong>.</p>
+                            <p>Atualizei minha base de dados com as diretrizes da <strong>LC 214/2025</strong>. Posso atuar em duas frentes:</p>
                             <ul>
-                                <li><i class="fas fa-check"></i> O que é IBS, CBS e IS</li>
-                                <li><i class="fas fa-check"></i> Como funciona o Split Payment</li>
-                                <li><i class="fas fa-check"></i> Cashback tributário</li>
-                                <li><i class="fas fa-check"></i> Timeline de transição</li>
-                                <li><i class="fas fa-check"></i> Impactos por UF</li>
-                                <li><i class="fas fa-check"></i> Comitê Gestor do IBS</li>
+                                <li>🟢 <strong>Cidadão:</strong> Impactos nos preços, cesta básica e cashback.</li>
+                                <li>🔴 <strong>Empresas:</strong> Split Payment, créditos e estratégia fiscal.</li>
                             </ul>
+                            <p>Selecione um tópico ao lado ou digite sua pergunta específica.</p>
                         </div>
-
-                        <div class="chat-suggestions">
-                            <h5><i class="fas fa-comment-dots"></i> Perguntas frequentes:</h5>
-                            <button class="suggestion-btn" onclick="enviarSugestao('O que é o IBS e como funciona?')">
-                                O que é o IBS?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('O que é Split Payment e como vai funcionar?')">
-                                O que é Split Payment?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('Como funciona o Cashback tributário?')">
-                                Como funciona o Cashback?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('Quando começa a transição do ICMS para IBS?')">
-                                Quando começa a transição?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('O que é o Imposto Seletivo e quais produtos são tributados?')">
-                                O que é o Imposto Seletivo?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('O que é o Comitê Gestor do IBS?')">
-                                O que é o Comitê Gestor?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('Qual o impacto da reforma em São Paulo?')">
-                                Impacto em São Paulo?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('Como fica a Cesta Básica na reforma?')">
-                                Cesta Básica Nacional?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('O que é não-cumulatividade plena?')">
-                                Não-cumulatividade plena?
-                            </button>
-                            <button class="suggestion-btn" onclick="enviarSugestao('Como funcionam as alíquotas reduzidas?')">
-                                Alíquotas reduzidas?
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="chat-main">
-                        <div class="chat-messages" id="chatMessages">
-                            <div class="message assistant">
-                                <div class="message-avatar"><i class="fas fa-robot"></i></div>
-                                <div class="message-content">
-                                    <div class="message-text">
-                                        <p>Olá! 👋 Sou o assistente do <strong>Observatório da Reforma Tributária</strong>.</p>
-                                        <p>Posso ajudá-lo a entender:</p>
-                                        <ul>
-                                            <li>📊 <strong>IBS</strong> - Imposto sobre Bens e Serviços (substitui ICMS/ISS)</li>
-                                            <li>💰 <strong>CBS</strong> - Contribuição sobre Bens e Serviços (substitui PIS/COFINS)</li>
-                                            <li>🚭 <strong>IS</strong> - Imposto Seletivo ("Imposto do Pecado")</li>
-                                            <li>⚡ <strong>Split Payment</strong> - Recolhimento automático</li>
-                                            <li>💵 <strong>Cashback</strong> - Devolução para famílias</li>
-                                            <li>📅 <strong>Timeline</strong> - Cronograma 2026-2033</li>
-                                        </ul>
-                                        <p>Clique em uma das perguntas sugeridas ou digite sua dúvida!</p>
-                                    </div>
-                                    <span class="message-time">Agora</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="chat-input-container">
-                            <div class="chat-input-wrapper">
-                                <input type="text" 
-                                       id="chatInput" 
-                                       class="chat-input" 
-                                       placeholder="Digite sua pergunta sobre a reforma tributária..."
-                                       onkeypress="if(event.key === 'Enter') enviarMensagem()">
-                                <button class="chat-send-btn" onclick="enviarMensagem()">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                            <p class="chat-disclaimer">
-                                <i class="fas fa-info-circle"></i>
-                                Respostas baseadas na EC 132/2023 e LC 214/2025. Para análises oficiais, consulte STN e RFB.
-                            </p>
-                        </div>
+                        <span class="message-time">Agora</span>
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" 
+                           id="chatInput" 
+                           class="chat-input" 
+                           placeholder="Digite sua dúvida sobre a reforma..."
+                           onkeypress="if(event.key === 'Enter') enviarMensagem()">
+                    <button class="chat-send-btn" onclick="enviarMensagem()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <p class="chat-disclaimer">
+                    <i class="fas fa-info-circle"></i>
 
         </div>
     </main>
